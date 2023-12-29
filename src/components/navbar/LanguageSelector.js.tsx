@@ -38,7 +38,7 @@ const LanguageSelector: React.FC = () => {
       PopoverContent={
         <List dense sx={{ width: 160 }} disablePadding>
           {languages.map((lang) => (
-            <ListItemButton>
+            <ListItemButton key={lang.name}>
               <ListItemIcon>
                 <img src={lang.Image} alt={lang.name} />
               </ListItemIcon>

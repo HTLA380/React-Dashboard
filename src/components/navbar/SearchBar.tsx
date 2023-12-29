@@ -16,7 +16,7 @@ const StyledDrawer = styled(Paper)({
   transition: "0.3s ease-in-out",
 });
 
-export default function SearchComponents() {
+const SearchBar = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -49,4 +49,6 @@ export default function SearchComponents() {
       </StyledDrawer>
     </Box>
   );
-}
+};
+
+export default SearchBar;

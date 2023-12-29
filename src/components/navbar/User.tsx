@@ -1,20 +1,29 @@
 import React from "react";
 import PopoverEl from "../../utils/PopoverEl";
 import {
-  Box,
   Divider,
+  Fab,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  Typography,
+  styled,
 } from "@mui/material";
-import { StyledAvatar } from "./NavbarStyles";
+import { blue } from "@mui/material/colors";
+import { StyledText } from "./NavbarStyles";
 
-const style = {
+const StyledAvatar = styled(Fab)({
+  backgroundColor: blue[400],
+  marginLeft: 4,
+  boxShadow: "none",
+  ":hover": {
+    backgroundColor: blue[800],
+  },
+});
+
+const StyledList = styled(List)({
   width: 180,
-  bgcolor: "background.paper",
-};
+});
 
 const User: React.FC = () => {
   return (
@@ -22,40 +31,30 @@ const User: React.FC = () => {
       margin=".5rem 0 0 0"
       Btn={<StyledAvatar size="small">J</StyledAvatar>}
       PopoverContent={
-        <List style={style} component="nav" aria-label="mailbox folders">
+        <StyledList dense>
           <ListItem>
             <ListItemText
-              disableTypography
-              sx={{ fontSize: 14 }}
-              primary={
-                <Typography sx={{ fontWeight: "medium", fontSize: 14 }}>
-                  Jaydon Frankie
-                </Typography>
-              }
-              secondary="demo@minimals.cc"
+              primary={<StyledText>Jaydon Frankie</StyledText>}
+              secondary={"demo@minimals.cc"}
             />
           </ListItem>
           <Divider />
-          <ListItemButton dense>
+          <ListItemButton>
             <ListItemText primary="Home" />
           </ListItemButton>
-          <ListItemButton dense>
+          <ListItemButton>
             <ListItemText primary="Profile" />
           </ListItemButton>
-          <ListItemButton dense>
+          <ListItemButton>
             <ListItemText primary="Settings" />
           </ListItemButton>
           <Divider />
-          <ListItemButton dense>
+          <ListItemButton>
             <ListItemText
-              primary={
-                <Typography fontSize={14} color="#ff2600">
-                  Logout
-                </Typography>
-              }
+              primary={<StyledText color="#ff2600">Logout</StyledText>}
             />
           </ListItemButton>
-        </List>
+        </StyledList>
       }
     />
   );

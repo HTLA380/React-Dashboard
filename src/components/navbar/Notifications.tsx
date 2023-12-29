@@ -1,14 +1,14 @@
 import React from "react";
-import { StyledIcon, StyledStack } from "./NavbarStyles";
+import { StyledIcon, StyledText } from "./NavbarStyles";
 import {
   Avatar,
   Badge,
+  Box,
   Divider,
   List,
-  ListItem,
   ListItemAvatar,
+  ListItemButton,
   ListItemText,
-  Stack,
   Typography,
   styled,
 } from "@mui/material";
@@ -21,160 +21,125 @@ import {
   ShoppingBag,
 } from "@mui/icons-material";
 import PopoverEl from "../../utils/PopoverEl";
-import theme from "../../../theme/theme";
 import { blue, grey } from "@mui/material/colors";
 
-const StyledListItem = styled(ListItem)({
-  alignItems: "center",
-  padding: ".5rem 1rem",
-  cursor: "pointer",
-  ":hover": { backgroundColor: grey[100] },
+const StyledCategory = styled(Typography)({
+  textTransform: "uppercase",
+  color: blue[400],
+  fontWeight: "bold",
+  fontSize: 14,
+  margin: ".5rem 1rem",
 });
 
-const notificationData = {
-  new: [
-    {
-      icon: <HomeRepairService color="warning" />,
-      name: "Your order is placed",
-      desc: "waiting for shipping",
-      date: "about 4 hours ago",
-    },
-    {
-      icon: <Person color="error" />,
-      name: "Christian",
-      desc: "answered to  your comment on the Minimal",
-      date: "about 4 hours ago",
-    },
-  ],
-  before: [
-    {
-      icon: <Message sx={{ color: "#ab47bc" }} />,
-      name: "You have new message",
-      desc: "5 unread messages",
-      date: "1 day ago",
-    },
-    {
-      icon: <Email color="info" />,
-      name: "You have new mail",
-      desc: "sent from Guido Padberg",
-      date: "2 days ago",
-    },
-    {
-      icon: <ShoppingBag color="warning" />,
-      name: "Delivery processing",
-      desc: "Your order is being shipped",
-      date: "3 days ago",
-    },
-  ],
+const StyledContainer = styled(Box)({
+  width: 300,
+  padding: "1rem 0",
+});
+
+const RenderNotifications = () => {
+  return notificationData.map((data) => (
+    <React.Fragment key={data.group}>
+      <StyledCategory>{data.group}</StyledCategory>
+      <List dense disablePadding>
+        {data.notifications.map((newNoti) => (
+          <ListItemButton key={newNoti.name}>
+            <ListItemAvatar>
+              <Avatar sx={{ backgroundColor: grey[200] }}>
+                {newNoti.icon}
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary={
+                <React.Fragment>
+                  <StyledText sx={{ display: "inline" }}>
+                    {newNoti.name}{" "}
+                  </StyledText>
+                  {newNoti.desc}
+                </React.Fragment>
+              }
+              secondary={
+                <Typography fontSize={12} color={"#919eab"}>
+                  {newNoti.date}
+                </Typography>
+              }
+            />
+          </ListItemButton>
+        ))}
+      </List>
+      <Divider />
+    </React.Fragment>
+  ));
 };
 
 const Notifications: React.FC = () => {
   return (
-    <StyledStack>
-      <PopoverEl
-        Btn={
-          <StyledIcon>
-            <Badge badgeContent={2} color="warning">
-              <NotificationsNone />
-            </Badge>
-          </StyledIcon>
-        }
-        PopoverContent={
-          <Stack width={300} pt={2}>
-            <Typography variant="h5" fontSize={16} fontWeight={"medium"} ml={2}>
+    <PopoverEl
+      Btn={
+        <StyledIcon>
+          <Badge badgeContent={2} color="warning">
+            <NotificationsNone />
+          </Badge>
+        </StyledIcon>
+      }
+      PopoverContent={
+        <StyledContainer>
+          <Box pl={2}>
+            <Typography variant="body1" fontWeight={"medium"}>
               Notifications
             </Typography>
-            <Typography
-              mt={0.25}
-              mb={1}
-              ml={2}
-              fontSize={14}
-              color={theme.palette.secondary.light}>
+            <Typography mt={0.25} mb={1} fontSize={14}>
               You have 2 unread messages
             </Typography>
-            <Divider />
-            <Typography
-              variant="body2"
-              color={blue[400]}
-              fontWeight={"bold"}
-              my={1}
-              ml={2}>
-              NEW
-            </Typography>
-            <List
-              sx={{
-                width: "100%",
-              }}>
-              {notificationData.new.map((newNoti) => (
-                <StyledListItem>
-                  <ListItemAvatar>
-                    <Avatar
-                      sx={{ backgroundColor: theme.palette.primary.main }}>
-                      {newNoti.icon}
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    secondary={
-                      <React.Fragment>
-                        <Typography
-                          sx={{ display: "inline" }}
-                          fontWeight={"medium"}
-                          variant="body2"
-                          color="text.primary">
-                          {newNoti.name}{" "}
-                        </Typography>
-                        {newNoti.desc}
-                        <Typography fontSize={12} color={"#919eab"}>
-                          {newNoti.date}
-                        </Typography>
-                      </React.Fragment>
-                    }
-                  />
-                </StyledListItem>
-              ))}
-              <Divider />
-              <Typography
-                variant="body2"
-                color={blue[400]}
-                fontWeight={"bold"}
-                my={1}
-                ml={2}>
-                BEFORE
-              </Typography>
-              {notificationData.before.map((newNoti) => (
-                <StyledListItem>
-                  <ListItemAvatar>
-                    <Avatar
-                      sx={{ backgroundColor: theme.palette.primary.main }}>
-                      {newNoti.icon}
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    secondary={
-                      <React.Fragment>
-                        <Typography
-                          sx={{ display: "inline" }}
-                          fontWeight={"medium"}
-                          variant="body2"
-                          color="text.primary">
-                          {newNoti.name}{" "}
-                        </Typography>
-                        {newNoti.desc}
-                        <Typography fontSize={12} color={"#919eab"}>
-                          {newNoti.date}
-                        </Typography>
-                      </React.Fragment>
-                    }
-                  />
-                </StyledListItem>
-              ))}
-            </List>
-            {/* {notificationData.new.map((data) => )} */}
-          </Stack>
-        }
-      />
-    </StyledStack>
+          </Box>
+          <Divider />
+          <RenderNotifications />
+        </StyledContainer>
+      }
+    />
   );
 };
+
+const notificationData = [
+  {
+    group: "new",
+    notifications: [
+      {
+        icon: <HomeRepairService color="warning" />,
+        name: "Your order is placed",
+        desc: "waiting for shipping",
+        date: "about 4 hours ago",
+      },
+      {
+        icon: <Person color="error" />,
+        name: "Christian",
+        desc: "answered to your comment on the Minimal",
+        date: "about 4 hours ago",
+      },
+    ],
+  },
+  {
+    group: "before",
+    notifications: [
+      {
+        icon: <Message sx={{ color: "#ab47bc" }} />,
+        name: "You have new message",
+        desc: "5 unread messages",
+        date: "1 day ago",
+      },
+      {
+        icon: <Email color="info" />,
+        name: "You have new mail",
+        desc: "sent from Guido Padberg",
+        date: "2 days ago",
+      },
+      {
+        icon: <ShoppingBag color="warning" />,
+        name: "Delivery processing",
+        desc: "Your order is being shipped",
+        date: "3 days ago",
+      },
+    ],
+  },
+];
 
 export default Notifications;

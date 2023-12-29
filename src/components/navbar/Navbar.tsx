@@ -1,5 +1,5 @@
 import React from "react";
-import SearchComponent from "./SearchComponent";
+import SearchBar from "./SearchBar.js";
 import { StyledStack } from "./NavbarStyles";
 import LanguageSelector from "./LanguageSelector.js";
 import Notifications from "./Notifications.js";
@@ -23,7 +23,8 @@ const Navbar: React.FC<NavbarInterface> = ({ drawerWidth }) => {
         boxShadow: "none",
       }}>
       <StyledStack sx={{ justifyContent: "space-between" }}>
-        <SearchComponent />
+        <SearchBar />
+
         <StyledStack>
           <LanguageSelector />
           <Notifications />

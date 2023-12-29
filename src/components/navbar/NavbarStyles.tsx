@@ -1,5 +1,5 @@
-import { Fab, Stack, styled } from "@mui/material";
-import { blue, grey } from "@mui/material/colors";
+import { Fab, Stack, Typography, styled } from "@mui/material";
+import { grey } from "@mui/material/colors";
 
 const StyledStack = styled(Stack)({
   flexDirection: "row",
@@ -18,13 +18,9 @@ const StyledIcon = styled(Fab)({
   },
 });
 
-const StyledAvatar = styled(Fab)({
-  backgroundColor: blue[400],
-  marginLeft: 4,
-  boxShadow: "none",
-  ":hover": {
-    backgroundColor: blue[800],
-  },
+const StyledText = styled(Typography)({
+  fontSize: 14,
+  fontWeight: "500",
 });
 
-export { StyledStack, StyledIcon, StyledAvatar };
+export { StyledStack, StyledIcon, StyledText };
