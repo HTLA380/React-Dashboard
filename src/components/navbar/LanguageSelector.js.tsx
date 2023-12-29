@@ -1,13 +1,16 @@
 import React from "react";
-import { StyledIcon, StyledStack } from "./NavbarStyles";
+import { StyledIcon } from "./NavbarStyles";
 import PopoverEl from "../../utils/PopoverEl";
 
 import flagEn from "../../assets/flags/en.svg";
 import flagDe from "../../assets/flags/de.svg";
 import flagFr from "../../assets/flags/fr.svg";
-import { Button, Stack, Typography } from "@mui/material";
-import theme from "../../../theme/theme";
-import { grey } from "@mui/material/colors";
+import {
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 
 const languages = [
   {
@@ -26,36 +29,25 @@ const languages = [
 
 const LanguageSelector: React.FC = () => {
   return (
-    <StyledStack>
-      <PopoverEl
-        Btn={
-          <StyledIcon>
-            <img src={flagEn} alt="English" />
-          </StyledIcon>
-        }
-        PopoverContent={
-          <Stack>
-            {languages.map((lang) => (
-              <Button
-                variant="text"
-                sx={{
-                  padding: "0.5rem 2rem 0.5rem 0.5rem",
-                  ":hover": { background: grey[200] },
-                }}>
+    <PopoverEl
+      Btn={
+        <StyledIcon>
+          <img src={flagEn} alt="English" />
+        </StyledIcon>
+      }
+      PopoverContent={
+        <List dense sx={{ width: 160 }} disablePadding>
+          {languages.map((lang) => (
+            <ListItemButton>
+              <ListItemIcon>
                 <img src={lang.Image} alt={lang.name} />
-                <Typography
-                  color={theme.palette.primary.contrastText}
-                  textTransform={"capitalize"}
-                  ml={2}
-                  variant="body1">
-                  {lang.name}
-                </Typography>
-              </Button>
-            ))}
-          </Stack>
-        }
-      />
-    </StyledStack>
+              </ListItemIcon>
+              <ListItemText primary={lang.name} />
+            </ListItemButton>
+          ))}
+        </List>
+      }
+    />
   );
 };
 
