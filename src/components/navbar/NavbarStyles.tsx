@@ -1,14 +1,5 @@
-import { AppBar, Avatar, Fab, Stack, styled } from "@mui/material";
+import { Fab, Stack, styled } from "@mui/material";
 import { blue, grey } from "@mui/material/colors";
-
-const StyledAppBar = styled(AppBar)({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  right: 0,
-  boxShadow: "none",
-  padding: "1rem 2rem",
-});
 
 const StyledStack = styled(Stack)({
   flexDirection: "row",
@@ -27,12 +18,13 @@ const StyledIcon = styled(Fab)({
   },
 });
 
-const StyledAvatar = styled(Avatar)({
+const StyledAvatar = styled(Fab)({
   backgroundColor: blue[400],
-  width: 30,
-  height: 30,
-  fontSize: 10,
-  marginLeft: 1,
+  marginLeft: 4,
+  boxShadow: "none",
+  ":hover": {
+    backgroundColor: blue[800],
+  },
 });
 
-export { StyledAppBar, StyledStack, StyledIcon, StyledAvatar };
+export { StyledStack, StyledIcon, StyledAvatar };
