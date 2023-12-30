@@ -35,7 +35,7 @@ const User: React.FC = () => {
           <ListItem>
             <ListItemText
               primary={<Typography variant="h6">Htet Aung Lin</Typography>}
-              secondary={"demo@minimals.cc"}
+              secondary={"htetaunglin.coder@gmail.com"}
             />
           </ListItem>
           <Divider />
