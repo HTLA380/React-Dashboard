@@ -1,11 +1,11 @@
 import React from "react";
-import { StyledIcon } from "./NavbarStyles";
 import PopoverEl from "../../utils/PopoverEl";
 
 import flagEn from "../../assets/flags/en.svg";
 import flagDe from "../../assets/flags/de.svg";
 import flagFr from "../../assets/flags/fr.svg";
 import {
+  IconButton,
   List,
   ListItemButton,
   ListItemIcon,
@@ -31,9 +31,9 @@ const LanguageSelector: React.FC = () => {
   return (
     <PopoverEl
       Btn={
-        <StyledIcon>
+        <IconButton size="medium">
           <img src={flagEn} alt="English" />
-        </StyledIcon>
+        </IconButton>
       }
       PopoverContent={
         <List dense sx={{ width: 160 }} disablePadding>

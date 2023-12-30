@@ -1,9 +1,21 @@
 import * as React from "react";
-import { StyledIcon, StyledStack } from "./NavbarStyles";
 import { Close, Search } from "@mui/icons-material";
-import { Box, Button, Paper, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Paper,
+  Stack,
+  TextField,
+} from "@mui/material";
 import { styled } from "@mui/system";
 import { grey } from "@mui/material/colors";
+
+const StyledStack = styled(Stack)({
+  flexDirection: "row",
+  alignItems: "center",
+  gap: 5,
+});
 
 const StyledDrawer = styled(Paper)({
   position: "absolute",
@@ -21,9 +33,9 @@ const SearchBar = () => {
 
   return (
     <Box>
-      <StyledIcon onClick={() => setOpen(true)}>
+      <IconButton onClick={() => setOpen(true)}>
         <Search />
-      </StyledIcon>
+      </IconButton>
       <StyledDrawer elevation={3} sx={{ top: open ? 0 : -200 }}>
         <StyledStack>
           <Search sx={{ color: grey[600] }} />
@@ -39,13 +51,12 @@ const SearchBar = () => {
             Search
           </Button>
         </StyledStack>
-        <StyledIcon
+        <IconButton
           aria-label="close"
           onClick={() => setOpen(false)}
-          size="small"
           sx={{ position: "absolute", top: 15, right: 20 }}>
           <Close />
-        </StyledIcon>
+        </IconButton>
       </StyledDrawer>
     </Box>
   );

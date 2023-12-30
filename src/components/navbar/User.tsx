@@ -7,10 +7,10 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Typography,
   styled,
 } from "@mui/material";
 import { blue } from "@mui/material/colors";
-import { StyledText } from "./NavbarStyles";
 
 const StyledAvatar = styled(Fab)({
   backgroundColor: blue[400],
@@ -34,7 +34,7 @@ const User: React.FC = () => {
         <StyledList dense>
           <ListItem>
             <ListItemText
-              primary={<StyledText>Jaydon Frankie</StyledText>}
+              primary={<Typography variant="h6">Jaydon Frankie</Typography>}
               secondary={"demo@minimals.cc"}
             />
           </ListItem>
@@ -51,7 +51,11 @@ const User: React.FC = () => {
           <Divider />
           <ListItemButton>
             <ListItemText
-              primary={<StyledText color="#ff2600">Logout</StyledText>}
+              primary={
+                <Typography variant="h6" color="#ff2600">
+                  Logout
+                </Typography>
+              }
             />
           </ListItemButton>
         </StyledList>

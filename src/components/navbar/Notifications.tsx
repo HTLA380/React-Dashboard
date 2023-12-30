@@ -1,10 +1,9 @@
 import React from "react";
-import { StyledIcon, StyledText } from "./NavbarStyles";
 import {
-  Avatar,
   Badge,
   Box,
   Divider,
+  IconButton,
   List,
   ListItemAvatar,
   ListItemButton,
@@ -21,7 +20,7 @@ import {
   ShoppingBag,
 } from "@mui/icons-material";
 import PopoverEl from "../../utils/PopoverEl";
-import { blue, grey } from "@mui/material/colors";
+import { blue } from "@mui/material/colors";
 
 const StyledCategory = styled(Typography)({
   textTransform: "uppercase",
@@ -44,16 +43,14 @@ const RenderNotifications = () => {
         {data.notifications.map((newNoti) => (
           <ListItemButton key={newNoti.name}>
             <ListItemAvatar>
-              <Avatar sx={{ backgroundColor: grey[200] }}>
+              <IconButton sx={{ backgroundColor: "primary.light" }}>
                 {newNoti.icon}
-              </Avatar>
+              </IconButton>
             </ListItemAvatar>
             <ListItemText
               primary={
                 <React.Fragment>
-                  <StyledText sx={{ display: "inline" }}>
-                    {newNoti.name}{" "}
-                  </StyledText>
+                  <Typography variant="h6">{newNoti.name} </Typography>
                   {newNoti.desc}
                 </React.Fragment>
               }
@@ -75,11 +72,11 @@ const Notifications: React.FC = () => {
   return (
     <PopoverEl
       Btn={
-        <StyledIcon>
+        <IconButton>
           <Badge badgeContent={2} color="warning">
             <NotificationsNone />
           </Badge>
-        </StyledIcon>
+        </IconButton>
       }
       PopoverContent={
         <StyledContainer>
