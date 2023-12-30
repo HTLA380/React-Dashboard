@@ -1,8 +1,9 @@
 import React from "react";
 import PopoverEl from "../../utils/PopoverEl";
 import {
+  Avatar,
   Divider,
-  Fab,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -10,16 +11,7 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import { blue } from "@mui/material/colors";
-
-const StyledAvatar = styled(Fab)({
-  backgroundColor: blue[400],
-  marginLeft: 4,
-  boxShadow: "none",
-  ":hover": {
-    backgroundColor: blue[800],
-  },
-});
+import UserImg from "../../assets/user.png";
 
 const StyledList = styled(List)({
   width: 180,
@@ -29,7 +21,15 @@ const User: React.FC = () => {
   return (
     <PopoverEl
       margin=".5rem 0 0 0"
-      Btn={<StyledAvatar size="small">J</StyledAvatar>}
+      Btn={
+        <IconButton>
+          <Avatar
+            alt="Htet Aung Lin"
+            src={UserImg}
+            sx={{ width: 35, height: 35 }}
+          />
+        </IconButton>
+      }
       PopoverContent={
         <StyledList dense>
           <ListItem>
