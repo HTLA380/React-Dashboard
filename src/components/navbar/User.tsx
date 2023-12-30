@@ -34,7 +34,7 @@ const User: React.FC = () => {
         <StyledList dense>
           <ListItem>
             <ListItemText
-              primary={<Typography variant="h6">Jaydon Frankie</Typography>}
+              primary={<Typography variant="h6">Htet Aung Lin</Typography>}
               secondary={"demo@minimals.cc"}
             />
           </ListItem>
