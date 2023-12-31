@@ -17,9 +17,11 @@ import {
   ListItemText,
   Stack,
   Typography,
+  styled,
 } from "@mui/material";
 import { blue } from "@mui/material/colors";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SideBarData = [
   { name: "dashboard", icon: <Dashboard />, path: "/" },
@@ -44,6 +46,12 @@ const SideBarData = [
     path: "/login",
   },
 ];
+
+const StyledLink = styled(Link)({
+  textDecoration: "none",
+  display: "block",
+  width: "100%",
+});
 
 const DrawerComponent = () => {
   const location = useLocation();
@@ -78,35 +86,40 @@ const DrawerComponent = () => {
       <List>
         {SideBarData.map((data) => (
           <ListItem key={data.name} disablePadding>
-            <ListItemButton
-              href={data.path}
-              sx={{
-                backgroundColor:
-                  location.pathname === data.path ? "#1876f228" : "transparent",
-                borderRadius: 2,
-              }}>
-              <ListItemIcon
+            <StyledLink to={data.path}>
+              <ListItemButton
                 sx={{
-                  minWidth: "2.25rem",
-                  color:
-                    location.pathname === data.path ? "#357ab8" : "#637381",
+                  backgroundColor:
+                    location.pathname === data.path
+                      ? "#1876f228"
+                      : "transparent",
+                  borderRadius: 2,
                 }}>
-                {data.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Typography
-                    textTransform={"capitalize"}
-                    variant="subtitle1"
-                    sx={{
-                      color:
-                        location.pathname === data.path ? "#357ab8" : "#637381",
-                    }}>
-                    {data.name}
-                  </Typography>
-                }
-              />
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: "2.25rem",
+                    color:
+                      location.pathname === data.path ? "#357ab8" : "#637381",
+                  }}>
+                  {data.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography
+                      textTransform={"capitalize"}
+                      variant="subtitle1"
+                      sx={{
+                        color:
+                          location.pathname === data.path
+                            ? "#357ab8"
+                            : "#637381",
+                      }}>
+                      {data.name}
+                    </Typography>
+                  }
+                />
+              </ListItemButton>
+            </StyledLink>
           </ListItem>
         ))}
       </List>
