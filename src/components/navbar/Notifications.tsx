@@ -50,7 +50,7 @@ const RenderNotifications = () => {
             <ListItemText
               primary={
                 <React.Fragment>
-                  <Typography variant="h6">{newNoti.name} </Typography>
+                  <Typography variant="subtitle1">{newNoti.name} </Typography>
                   {newNoti.desc}
                 </React.Fragment>
               }
@@ -81,7 +81,7 @@ const Notifications: React.FC = () => {
       PopoverContent={
         <StyledContainer>
           <Box pl={2}>
-            <Typography variant="body1" fontWeight={"medium"}>
+            <Typography variant="subtitle1" fontWeight={"medium"}>
               Notifications
             </Typography>
             <Typography mt={0.25} mb={1} fontSize={14}>

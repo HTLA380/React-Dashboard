@@ -16,7 +16,7 @@ const SideBar: React.FC<SidebarInterface> = ({ drawerWidth }) => {
   return (
     <Box
       component="nav"
-      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
+      sx={{ width: { lg: drawerWidth }, flexShrink: { lg: 0 } }}>
       <Drawer
         variant="temporary"
         open={mobileOpen}
@@ -25,7 +25,7 @@ const SideBar: React.FC<SidebarInterface> = ({ drawerWidth }) => {
           keepMounted: true,
         }}
         sx={{
-          display: { xs: "block", sm: "none" },
+          display: { xs: "block", lg: "none" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,
@@ -36,7 +36,7 @@ const SideBar: React.FC<SidebarInterface> = ({ drawerWidth }) => {
       <Drawer
         variant="permanent"
         sx={{
-          display: { xs: "none", sm: "block" },
+          display: { xs: "none", lg: "block" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,

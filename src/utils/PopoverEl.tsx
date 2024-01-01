@@ -4,9 +4,14 @@ import React from "react";
 interface PopoverElInterface {
   Btn: React.ReactNode;
   PopoverContent: React.ReactNode;
+  margin?: string;
 }
 
-const PopoverEl: React.FC<PopoverElInterface> = ({ Btn, PopoverContent }) => {
+const PopoverEl: React.FC<PopoverElInterface> = ({
+  Btn,
+  PopoverContent,
+  margin,
+}) => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
   );
@@ -37,7 +42,8 @@ const PopoverEl: React.FC<PopoverElInterface> = ({ Btn, PopoverContent }) => {
         transformOrigin={{
           vertical: "top",
           horizontal: "right",
-        }}>
+        }}
+        sx={{ margin: margin }}>
         {PopoverContent}
       </Popover>
     </div>

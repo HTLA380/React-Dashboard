@@ -1,7 +1,7 @@
+import React from "react";
 import { Box, CardContent, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import React from "react";
-import CardComponent from "./CardComponent";
+import { StyledCard } from "../../components/Styles";
 import { Error, NextWeek, Person, ShoppingCart } from "@mui/icons-material";
 import { cyan, orange, red, teal } from "@mui/material/colors";
 
@@ -30,36 +30,30 @@ const ActivitiesData = [
 
 const Activities: React.FC = () => {
   return (
-    <Grid
-      container
-      spacing={3}
-      columns={{ xs: 1, sm: 2, md: 4 }}
-      width={"100%"}>
-      {ActivitiesData.map((data) => {
-        return (
-          <Grid xs={1}>
-            <CardComponent>
-              <CardContent
-                sx={{
-                  display: "flex",
-                  flexDirection: { sx: "row", md: "column", xl: "row" },
-                  alignItems: "top",
-                  gap: 3,
-                  padding: { xs: 5, lg: 4, xl: 5 },
-                  "&:last-child": {
-                    paddingBottom: { xs: 5, lg: 4, xl: 5 },
-                  },
-                }}>
-                {data.icon}
-                <Box>
-                  <Typography variant="h4">{data.count}</Typography>
-                  <Typography variant="body1">{data.name}</Typography>
-                </Box>
-              </CardContent>
-            </CardComponent>
-          </Grid>
-        );
-      })}
+    <Grid container spacing={2} width={"100%"}>
+      {ActivitiesData.map((data) => (
+        <Grid xs={12} sm={6} md={3} key={data.name}>
+          <StyledCard>
+            <CardContent
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "row", md: "column", xl: "row" },
+                alignItems: "top",
+                gap: 3,
+                padding: { xs: 3, lg: 4, xl: 5 },
+                "&:last-child": {
+                  paddingBottom: { xs: 3, lg: 4, xl: 5 },
+                },
+              }}>
+              {data.icon}
+              <Box>
+                <Typography variant="h4">{data.count}</Typography>
+                <Typography variant="body1">{data.name}</Typography>
+              </Box>
+            </CardContent>
+          </StyledCard>
+        </Grid>
+      ))}
     </Grid>
   );
 };

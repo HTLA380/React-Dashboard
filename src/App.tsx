@@ -16,7 +16,12 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ display: "flex" }}>
+      <Box
+        sx={{
+          display: "flex",
+          backgroundColor: "primary.main",
+          minHeight: "100vh",
+        }}>
         <Navbar drawerWidth={drawerWidth} />
         <SideBar drawerWidth={drawerWidth} />
         <Box
@@ -24,7 +29,7 @@ const App: React.FC = () => {
           sx={{
             flexGrow: 1,
             p: 3,
-            width: { sm: `calc(100% - ${drawerWidth}px)` },
+            width: { lg: `calc(100% - ${drawerWidth}px)` },
           }}>
           {content}
         </Box>

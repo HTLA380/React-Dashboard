@@ -3,6 +3,7 @@ import { Close, Search } from "@mui/icons-material";
 import {
   Box,
   Button,
+  Container,
   IconButton,
   Paper,
   Stack,
@@ -22,9 +23,9 @@ const StyledDrawer = styled(Paper)({
   top: 0,
   left: 0,
   right: 0,
-  padding: "2rem 5rem",
+  padding: "1rem 2rem",
   zIndex: 9999,
-  backgroundColor: "#e9e9e9",
+  backgroundColor: "#f0f0f0",
   transition: "0.3s ease-in-out",
 });
 
@@ -37,26 +38,24 @@ const SearchBar = () => {
         <Search />
       </IconButton>
       <StyledDrawer elevation={3} sx={{ top: open ? 0 : -200 }}>
-        <StyledStack>
-          <Search sx={{ color: grey[600] }} />
-          <TextField
-            id="standard-basic"
-            placeholder="Search..."
-            variant="standard"
-            sx={{ margin: "0 3rem 0 .5rem" }}
-            color="secondary"
-            fullWidth
-          />
-          <Button variant="contained" color="info" sx={{ marginRight: 2 }}>
-            Search
-          </Button>
-        </StyledStack>
-        <IconButton
-          aria-label="close"
-          onClick={() => setOpen(false)}
-          sx={{ position: "absolute", top: 15, right: 20 }}>
-          <Close />
-        </IconButton>
+        <Container maxWidth="xl">
+          <StyledStack>
+            <Search sx={{ color: grey[600] }} />
+            <TextField
+              placeholder="Search..."
+              variant="standard"
+              sx={{ margin: "0 3rem 0 .5rem" }}
+              color="secondary"
+              fullWidth
+            />
+            <Button variant="contained" color="info" sx={{ marginRight: 2 }}>
+              Search
+            </Button>
+            <IconButton aria-label="close" onClick={() => setOpen(false)}>
+              <Close />
+            </IconButton>
+          </StyledStack>
+        </Container>
       </StyledDrawer>
     </Box>
   );
