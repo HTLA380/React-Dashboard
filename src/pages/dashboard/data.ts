@@ -44,3 +44,22 @@ export const UserData = [
     visit: 30,
   },
 ];
+
+export const PieChartData = [
+  {
+    name: "America",
+    visits: 4344,
+  },
+  {
+    name: "Asia",
+    visits: 5435,
+  },
+  {
+    name: "Europe",
+    visits: 1443,
+  },
+  {
+    name: "Africa",
+    visits: 4443,
+  },
+];

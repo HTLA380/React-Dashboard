@@ -1,38 +1,44 @@
 import React from "react";
-import { Chart, registerables } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { StyledCard } from "../../components/Styles";
-import { Box, Typography } from "@mui/material";
-
-Chart.register(...registerables);
+import { Box, Stack, Typography } from "@mui/material";
+import { PieChartData } from "./data";
 
 const PieChart: React.FC = () => {
   return (
     <StyledCard>
       <Box margin={3}>
-        <Typography variant="h5">Website Visits</Typography>
-        <Typography variant="body2">(+43%) than last year</Typography>
+        <Typography variant="h5">Current Visits</Typography>
       </Box>
 
-      <Box padding={"2rem"}>
+      <Stack padding={"2rem"} height={420} alignItems={"center"}>
         <Pie
+          options={{
+            plugins: {
+              legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                  boxWidth: 15,
+                  boxHeight: 15,
+                  pointStyle: "circle",
+                },
+              },
+            },
+            maintainAspectRatio: false,
+          }}
           data={{
-            labels: ["Red", "Blue", "Yellow"],
+            labels: PieChartData.map((data) => data.name),
             datasets: [
               {
-                label: "My First Dataset",
-                data: [300, 50, 100],
-                backgroundColor: [
-                  "rgb(255, 99, 132)",
-                  "rgb(54, 162, 235)",
-                  "rgb(255, 205, 86)",
-                ],
+                data: PieChartData.map((data) => data.visits),
+                backgroundColor: ["#1877f2", "#ffab00", "#00b8d9", "#ff5630"],
                 hoverOffset: 4,
               },
             ],
           }}
         />
-      </Box>
+      </Stack>
     </StyledCard>
   );
 };
