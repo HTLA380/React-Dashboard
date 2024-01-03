@@ -4,6 +4,7 @@ import Activities from "./Activities";
 import BarChartComponent from "./BarChart";
 import PieChart from "./PieChart";
 import HorizontalChart from "./HorizontalChart";
+import RadarChart from "./RadarChart";
 
 const Dashboard: React.FC = () => {
   return (
@@ -33,7 +34,7 @@ const Dashboard: React.FC = () => {
           <HorizontalChart />
         </Grid>
         <Grid item xs={12} md={6} xl={4}>
-          <PieChart />
+          <RadarChart />
         </Grid>
       </Grid>
     </Container>

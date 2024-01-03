@@ -106,3 +106,39 @@ export const HorizontalBarChartData = [
     rates: 1380,
   },
 ];
+
+export const radarChartData = [
+  {
+    label: "Series 1",
+    data: [90, 60, 50, 60, 112, 20],
+    fill: true,
+    backgroundColor: "rgba(54, 162, 235, 0.2)",
+    borderColor: "rgb(54, 162, 235)",
+    pointBackgroundColor: "rgb(54, 162, 235)",
+    pointBorderColor: "#fff",
+    pointHoverBackgroundColor: "#fff",
+    pointHoverBorderColor: "rgb(54, 162, 235)",
+  },
+  {
+    label: "Series 2",
+    data: [28, 30, 40, 100, 20, 80],
+    fill: true,
+    backgroundColor: "#ffaa0024",
+    borderColor: "#ffab00",
+    pointBackgroundColor: "#ffab00",
+
+    pointHoverBackgroundColor: "#fff",
+    pointHoverBorderColor: "#ffab00",
+  },
+  {
+    label: "Series 3",
+    data: [50, 80, 80, 10, 50, 10],
+    fill: true,
+    backgroundColor: "rgba(54, 235, 226, 0.2)",
+    borderColor: "rgb(54, 235, 226)",
+    pointBackgroundColor: "rgb(54, 235, 226)",
+    pointBorderColor: "#fff",
+    pointHoverBackgroundColor: "#fff",
+    pointHoverBorderColor: "rgb(54, 235, 226)",
+  },
+];
