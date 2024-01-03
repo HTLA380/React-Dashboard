@@ -50,12 +50,22 @@ const RenderNotifications = () => {
             <ListItemText
               primary={
                 <React.Fragment>
-                  <Typography variant="subtitle1">{newNoti.name} </Typography>
-                  {newNoti.desc}
+                  <Typography variant="body1" display={"inline"}>
+                    {newNoti.name}{" "}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    display={"inline"}
+                    color={"secondary.dark"}>
+                    {newNoti.desc}
+                  </Typography>
                 </React.Fragment>
               }
               secondary={
-                <Typography fontSize={12} color={"#919eab"}>
+                <Typography
+                  fontSize={13}
+                  color={"secondary.light"}
+                  variant="body2">
                   {newNoti.date}
                 </Typography>
               }
@@ -81,10 +91,15 @@ const Notifications: React.FC = () => {
       PopoverContent={
         <StyledContainer>
           <Box pl={2}>
-            <Typography variant="subtitle1" fontWeight={"medium"}>
+            <Typography fontWeight={"medium"} fontSize={"1rem"} variant="body1">
               Notifications
             </Typography>
-            <Typography mt={0.25} mb={1} fontSize={14}>
+            <Typography
+              mt={0.25}
+              mb={1}
+              fontSize={"0.9rem"}
+              color={"secondary.dark"}>
+              {" "}
               You have 2 unread messages
             </Typography>
           </Box>
