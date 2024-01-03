@@ -27,7 +27,7 @@ const HorizontalChart: React.FC = () => {
                 data: HorizontalBarChartData.map((data) => data.rates),
                 backgroundColor: ["rgb(24, 118, 242)"],
                 borderRadius: 50,
-                maxBarThickness: 10,
+                maxBarThickness: 8,
               },
             ],
           }}
