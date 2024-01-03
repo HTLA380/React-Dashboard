@@ -40,15 +40,29 @@ const Activities: React.FC = () => {
                 flexDirection: { xs: "row", md: "column", xl: "row" },
                 alignItems: "top",
                 gap: 3,
-                padding: { xs: 3, lg: 4, xl: 5 },
+                padding: { xs: 4, xl: 5 },
                 "&:last-child": {
-                  paddingBottom: { xs: 3, lg: 4, xl: 5 },
+                  paddingBottom: { xs: 4, xl: 5 },
                 },
               }}>
               {data.icon}
               <Box>
-                <Typography variant="h4">{data.count}</Typography>
-                <Typography variant="body1">{data.name}</Typography>
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontSize: { xs: "1.25rem", sm: "1.4rem", md: "1.6rem" },
+                  }}>
+                  {data.count}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontSize: { xs: "0.8rem", md: "0.9rem" },
+                  }}
+                  color={"secondary"}
+                  fontWeight={500}>
+                  {data.name}
+                </Typography>
               </Box>
             </CardContent>
           </StyledCard>

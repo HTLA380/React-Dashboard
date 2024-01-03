@@ -11,7 +11,7 @@ const PieChart: React.FC = () => {
         <Typography variant="h5">Current Visits</Typography>
       </Box>
 
-      <Stack padding={"2rem"} height={420} alignItems={"center"}>
+      <Stack padding={"2rem"} height={400} alignItems={"center"}>
         <Pie
           options={{
             plugins: {
