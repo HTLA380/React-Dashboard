@@ -2,7 +2,7 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import { StyledCard } from "../../components/Styles";
 import { Box, Stack, Typography } from "@mui/material";
-import { PieChartData } from "./data";
+import { PieChartData } from "./chartData";
 
 const PieChart: React.FC = () => {
   return (

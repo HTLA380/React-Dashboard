@@ -1,44 +1,44 @@
 import React from "react";
 import { StyledCard } from "../../components/Styles";
-import { Box, Typography } from "@mui/material";
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
+import { HorizontalBarChartData } from "./chartData";
+import { Box, Typography } from "@mui/material";
 
 Chart.register(...registerables);
 
-import { ChartData } from "./chartData";
-
-const BarChartComponent: React.FC = () => {
+const HorizontalChart: React.FC = () => {
   return (
     <StyledCard>
       <Box margin={3}>
-        <Typography variant="h5">Website Visits</Typography>
+        <Typography variant="h5">Conversion Rates</Typography>
         <Typography variant="body2" color={"secondary.dark"}>
           (+43%) than last year
         </Typography>
       </Box>
 
-      <Box padding={"2rem"} sx={{ aspectRatio: "1/0.4" }}>
+      <Box padding={"1rem 2rem"} sx={{ aspectRatio: "1/0.4" }}>
         <Bar
           data={{
-            labels: ChartData.map((data) => data.date),
+            labels: HorizontalBarChartData.map((data) => data.name),
             datasets: [
               {
                 label: "Visit",
-                data: ChartData.map((data) => data.visit),
+                data: HorizontalBarChartData.map((data) => data.rates),
                 backgroundColor: ["rgb(24, 118, 242)"],
                 borderRadius: 50,
-                maxBarThickness: 20,
+                maxBarThickness: 10,
               },
             ],
           }}
           options={{
+            indexAxis: "y",
             plugins: {
               legend: {
                 display: false,
               },
               tooltip: {
-                mode: "x",
+                mode: "index",
               },
             },
             responsive: true,
@@ -50,4 +50,4 @@ const BarChartComponent: React.FC = () => {
   );
 };
 
-export default BarChartComponent;
+export default HorizontalChart;

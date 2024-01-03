@@ -3,6 +3,7 @@ import React from "react";
 import Activities from "./Activities";
 import BarChartComponent from "./BarChart";
 import PieChart from "./PieChart";
+import HorizontalChart from "./HorizontalChart";
 
 const Dashboard: React.FC = () => {
   return (
@@ -17,9 +18,19 @@ const Dashboard: React.FC = () => {
       </Typography>
 
       <Activities />
+
       <Grid container spacing={2} marginTop={0} width={"100%"}>
         <Grid item xs={12} md={6} xl={8}>
           <BarChartComponent />
+        </Grid>
+        <Grid item xs={12} md={6} xl={4}>
+          <PieChart />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={2} marginTop={0} width={"100%"}>
+        <Grid item xs={12} md={6} xl={8}>
+          <HorizontalChart />
         </Grid>
         <Grid item xs={12} md={6} xl={4}>
           <PieChart />
