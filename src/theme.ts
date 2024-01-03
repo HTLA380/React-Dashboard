@@ -6,18 +6,13 @@ export const theme = createTheme({
     primary: {
       main: grey[100],
     },
+    secondary: {
+      main: "#919eab",
+    },
   },
   components: {
     MuiTypography: {
       variants: [
-        {
-          props: { variant: "subtitle1" },
-          style: {
-            fontWeight: 500,
-            fontSize: "0.92rem",
-            display: "inline",
-          },
-        },
         {
           props: { variant: "h4" },
           style: {
@@ -35,11 +30,17 @@ export const theme = createTheme({
           },
         },
         {
-          props: { variant: "body1" },
+          props: { variant: "subtitle1" },
           style: {
             fontWeight: 500,
             fontSize: "0.9rem",
-            color: "#919eab",
+          },
+        },
+        {
+          props: { variant: "body1" },
+          style: {
+            fontWeight: 500,
+            fontSize: "0.92rem",
           },
         },
         {
@@ -47,7 +48,6 @@ export const theme = createTheme({
           style: {
             fontWeight: 400,
             fontSize: "0.9rem",
-            color: "#919eab",
           },
         },
       ],
