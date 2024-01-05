@@ -6,6 +6,7 @@ import PieChart from "./chart/PieChart";
 import HorizontalChart from "./chart/HorizontalChart";
 import RadarChart from "./chart/RadarChart";
 import NewsUpdate from "./NewsUpdate";
+import OrderTimeLine from "./OrderTimeLine";
 
 const Dashboard: React.FC = () => {
   return (
@@ -44,7 +45,7 @@ const Dashboard: React.FC = () => {
           <NewsUpdate />
         </Grid>
         <Grid item xs={12} md={6} xl={4}>
-          <RadarChart />
+          <OrderTimeLine />
         </Grid>
       </Grid>
     </Container>

@@ -5,6 +5,7 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: grey[100],
+      contrastText: "#212b36",
     },
     secondary: {
       main: "#919eab",
@@ -18,7 +19,6 @@ export const theme = createTheme({
           style: {
             fontWeight: 600,
             fontSize: "1.6rem",
-            color: "#212b36",
           },
         },
         {
@@ -26,7 +26,6 @@ export const theme = createTheme({
           style: {
             fontWeight: 600,
             fontSize: "1.15rem",
-            color: "#212b36",
           },
         },
         {
