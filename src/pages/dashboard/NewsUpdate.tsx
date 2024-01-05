@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledCard } from "../../components/Styles";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import { newsData } from "./data";
 import { ChevronRight } from "@mui/icons-material";
 
@@ -80,24 +80,17 @@ const NewsUpdate: React.FC = () => {
         width={"100%"}
         flexDirection={"row"}
         padding={1}>
-        <Stack
-          flexDirection={"row"}
-          alignItems={"center"}
-          component={"button"}
+        <Button
           sx={{
-            backgroundColor: "transparent",
-            border: "none",
-            padding: "0.5rem 0rem 0.5rem 0.5rem",
-            borderRadius: 2,
-            transition: "0.15s ease-in-out",
-            cursor: "pointer",
-            ":hover": {
-              backgroundColor: "secondary.light",
-            },
+            color: "#212b36",
+            fontSize: 14,
+            textTransform: "none",
+            fontWeight: "bold",
+            ":hover": { backgroundColor: "primary.main" },
           }}>
-          <Typography>View All</Typography>
+          View All
           <ChevronRight />
-        </Stack>
+        </Button>
       </Stack>
     </StyledCard>
   );

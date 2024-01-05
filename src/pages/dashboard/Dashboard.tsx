@@ -1,10 +1,11 @@
 import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import Activities from "./Activities";
-import BarChartComponent from "./BarChart";
-import PieChart from "./PieChart";
-import HorizontalChart from "./HorizontalChart";
-import RadarChart from "./RadarChart";
+import BarChartComponent from "./chart/BarChart";
+import PieChart from "./chart/PieChart";
+import HorizontalChart from "./chart/HorizontalChart";
+import RadarChart from "./chart/RadarChart";
+import NewsUpdate from "./NewsUpdate";
 
 const Dashboard: React.FC = () => {
   return (
@@ -32,6 +33,15 @@ const Dashboard: React.FC = () => {
       <Grid container spacing={2} marginTop={0} width={"100%"}>
         <Grid item xs={12} md={6} xl={8}>
           <HorizontalChart />
+        </Grid>
+        <Grid item xs={12} md={6} xl={4}>
+          <RadarChart />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={2} marginTop={0} width={"100%"}>
+        <Grid item xs={12} md={6} xl={8}>
+          <NewsUpdate />
         </Grid>
         <Grid item xs={12} md={6} xl={4}>
           <RadarChart />
