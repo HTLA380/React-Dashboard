@@ -35,7 +35,7 @@ const RenderNews: React.FC<RenderNewsInterface> = ({
         sx={{
           overflow: "hidden",
           textOverflow: "ellipsis",
-          width: "100%",
+          width: { xs: "10rem", sm: "30rem", lg: "100%" },
         }}>
         <Typography variant="body1">{title}</Typography>
         <Typography
@@ -64,7 +64,7 @@ const NewsUpdate: React.FC = () => {
         <Typography variant="h5">News Update</Typography>
       </Box>
 
-      <Box sx={{ padding: "0 1.25rem 1.25rem" }}>
+      <Box sx={{ padding: "0 1.25rem 1.25rem", overflow: "hidden" }}>
         {newsData.map((data) => (
           <RenderNews
             title={data.title}
