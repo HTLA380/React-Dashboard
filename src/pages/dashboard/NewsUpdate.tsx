@@ -67,6 +67,7 @@ const NewsUpdate: React.FC = () => {
       <Box sx={{ padding: "0 1.25rem 1.25rem", overflow: "hidden" }}>
         {newsData.map((data) => (
           <RenderNews
+            key={data.title}
             title={data.title}
             description={data.description}
             image={data.image}
