@@ -1,12 +1,12 @@
 import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import Activities from "./Activities";
+import Activities from "./others/Activities";
 import BarChartComponent from "./chart/BarChart";
 import PieChart from "./chart/PieChart";
 import HorizontalChart from "./chart/HorizontalChart";
 import RadarChart from "./chart/RadarChart";
-import NewsUpdate from "./NewsUpdate";
-import OrderTimeLine from "./OrderTimeLine";
+import NewsUpdate from "./others/NewsUpdate";
+import OrderTimeLine from "./others/OrderTimeLine";
 
 const Dashboard: React.FC = () => {
   return (

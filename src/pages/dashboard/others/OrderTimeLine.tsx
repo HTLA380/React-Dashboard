@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledCard } from "../../components/Styles";
+import { StyledCard } from "../../../components/Styles";
 import { Box, List, ListItem, Stack, Typography } from "@mui/material";
 
 interface RenderOrderInterface {

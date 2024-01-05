@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, CardContent, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import { StyledCard } from "../../components/Styles";
+import { StyledCard } from "../../../components/Styles";
 import { Error, NextWeek, Person, ShoppingCart } from "@mui/icons-material";
 import { cyan, orange, red, teal } from "@mui/material/colors";
 

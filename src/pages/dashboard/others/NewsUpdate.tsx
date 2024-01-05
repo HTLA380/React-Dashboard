@@ -1,7 +1,7 @@
 import React from "react";
-import { StyledCard } from "../../components/Styles";
+import { StyledCard } from "../../../components/Styles";
 import { Box, Button, Divider, Stack, Typography } from "@mui/material";
-import { newsData } from "./data";
+import { newsData } from "../data";
 import { ChevronRight } from "@mui/icons-material";
 
 interface RenderNewsInterface {
