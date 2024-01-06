@@ -62,7 +62,7 @@ const OrderTimeLine: React.FC = () => {
       <List sx={{ padding: "0 2rem 2rem" }}>
         <RenderOrder
           name="1983, orders, $4220"
-          dotColor="rgb(54, 162, 235)"
+          dotColor="rgb(24, 119, 242)"
           date="16 Nov 2023 3:21 PM"
         />
         <RenderOrder
