@@ -19,8 +19,9 @@ const App: React.FC = () => {
       <Box
         sx={{
           display: "flex",
-          backgroundColor: "primary.main",
           minHeight: "100vh",
+          overflow: "hidden",
+          backgroundColor: "primary.main",
         }}>
         <Navbar drawerWidth={drawerWidth} />
         <SideBar drawerWidth={drawerWidth} />

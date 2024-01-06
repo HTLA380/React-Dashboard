@@ -35,7 +35,7 @@ const RenderNews: React.FC<RenderNewsInterface> = ({
         sx={{
           overflow: "hidden",
           textOverflow: "ellipsis",
-          width: { xs: "10rem", sm: "30rem", lg: "100%" },
+          width: { xs: "7rem", sm: "20rem", lg: "100%" },
         }}>
         <Typography variant="body1">{title}</Typography>
         <Typography
