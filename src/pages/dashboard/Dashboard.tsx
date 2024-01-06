@@ -7,6 +7,7 @@ import HorizontalChart from "./chart/HorizontalChart";
 import RadarChart from "./chart/RadarChart";
 import NewsUpdate from "./others/NewsUpdate";
 import OrderTimeLine from "./others/OrderTimeLine";
+import SocialMedia from "./others/SocialMedia";
 
 const Dashboard: React.FC = () => {
   return (
@@ -46,6 +47,11 @@ const Dashboard: React.FC = () => {
         </Grid>
         <Grid item xs={12} md={6} xl={4}>
           <OrderTimeLine />
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} marginTop={0} width={"100%"}>
+        <Grid item xs={12} md={6} xl={4}>
+          <SocialMedia />
         </Grid>
       </Grid>
     </Container>
