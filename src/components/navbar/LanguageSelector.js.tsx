@@ -30,7 +30,7 @@ const languages = [
 const LanguageSelector: React.FC = () => {
   return (
     <PopoverEl
-      Btn={
+      ControlBtn={
         <IconButton size="medium">
           <img src={flagEn} alt="English" />
         </IconButton>
@@ -39,7 +39,7 @@ const LanguageSelector: React.FC = () => {
         <List dense sx={{ width: 160 }} disablePadding>
           {languages.map((lang) => (
             <ListItemButton key={lang.name}>
-              <ListItemIcon>
+              <ListItemIcon sx={{ marginRight: 0 }}>
                 <img src={lang.Image} alt={lang.name} />
               </ListItemIcon>
               <ListItemText primary={lang.name} />

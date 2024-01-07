@@ -21,7 +21,7 @@ const User: React.FC = () => {
   return (
     <PopoverEl
       margin=".5rem 0 0 0"
-      Btn={
+      ControlBtn={
         <IconButton>
           <Avatar
             alt="Htet Aung Lin"

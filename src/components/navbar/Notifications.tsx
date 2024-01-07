@@ -81,7 +81,7 @@ const RenderNotifications = () => {
 const Notifications: React.FC = () => {
   return (
     <PopoverEl
-      Btn={
+      ControlBtn={
         <IconButton>
           <Badge badgeContent={2} color="warning">
             <NotificationsNone />
