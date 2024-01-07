@@ -8,10 +8,11 @@ import RadarChart from "./chart/RadarChart";
 import NewsUpdate from "./others/NewsUpdate";
 import OrderTimeLine from "./others/OrderTimeLine";
 import SocialMedia from "./others/SocialMedia";
+import Tasks from "./others/Tasks";
 
 const Dashboard: React.FC = () => {
   return (
-    <Container maxWidth="xl" sx={{ padding: "4rem 0 1rem" }}>
+    <Container maxWidth="xl" disableGutters>
       <Typography
         variant="h4"
         marginBottom={3}
@@ -52,6 +53,9 @@ const Dashboard: React.FC = () => {
       <Grid container spacing={2} marginTop={0} width={"100%"}>
         <Grid item xs={12} md={6} xl={4}>
           <SocialMedia />
+        </Grid>
+        <Grid item xs={12} md={6} xl={8}>
+          <Tasks />
         </Grid>
       </Grid>
     </Container>
