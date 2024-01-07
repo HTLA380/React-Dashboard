@@ -18,7 +18,13 @@ const RenderNews: React.FC<RenderNewsInterface> = ({
   date,
 }) => {
   return (
-    <Stack flexDirection={"row"} alignItems={"center"} gap={2} marginBottom={3}>
+    <Stack
+      flexDirection={"row"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      gap={2}
+      marginBottom={3}
+      maxWidth={"80vw"}>
       <Box
         component="img"
         sx={{
@@ -33,9 +39,9 @@ const RenderNews: React.FC<RenderNewsInterface> = ({
 
       <Box
         sx={{
-          overflow: "hidden",
           textOverflow: "ellipsis",
-          width: { xs: "7rem", sm: "20rem", lg: "100%" },
+          width: "48rem",
+          overflow: "hidden",
         }}>
         <Typography variant="body1">{title}</Typography>
         <Typography
