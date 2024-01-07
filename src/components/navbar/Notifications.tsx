@@ -92,6 +92,13 @@ const Notifications: React.FC = () => {
             padding: "1rem 0 0",
             height: { xs: 400, md: "fit-content" },
             overflowY: { xs: "scroll", md: "auto" },
+            "&::-webkit-scrollbar": {
+              width: "0.6rem",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "rgb(178, 182, 196)",
+              borderRadius: "100vmax",
+            },
           }}>
           <Box pl={2}>
             <Typography fontWeight={"medium"} fontSize={"1rem"} variant="body1">
