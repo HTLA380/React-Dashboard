@@ -89,7 +89,9 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
           <List disablePadding>
             {options.map((option) => {
               return (
-                <ListItemButton sx={{ padding: "0.25rem 1rem" }}>
+                <ListItemButton
+                  key={option.name}
+                  sx={{ padding: "0.25rem 1rem" }}>
                   <ListItemIcon
                     sx={{ minWidth: 30, color: "primary.contrastText" }}>
                     {option.icon}
