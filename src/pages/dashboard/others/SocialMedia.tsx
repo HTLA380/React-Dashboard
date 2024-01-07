@@ -23,9 +23,8 @@ const RenderSocialMedia: React.FC<RenderSocialMediaInterface> = ({
           alignItems: "center",
           justifyContent: "center",
           border: "1px dashed #dddddd",
-          aspectRatio: "1/0.7",
           borderRadius: 3,
-          padding: 2,
+          padding: 3,
         }}>
         {Icon}
         <Typography variant="h5">{number}</Typography>
