@@ -2,6 +2,7 @@ import React from "react";
 import {
   Badge,
   Box,
+  Button,
   Divider,
   IconButton,
   List,
@@ -28,11 +29,6 @@ const StyledCategory = styled(Typography)({
   fontWeight: "bold",
   fontSize: 14,
   margin: ".5rem 1rem",
-});
-
-const StyledContainer = styled(Box)({
-  width: 300,
-  padding: "1rem 0",
 });
 
 const RenderNotifications = () => {
@@ -89,14 +85,21 @@ const Notifications: React.FC = () => {
         </IconButton>
       }
       PopoverContent={
-        <StyledContainer>
+        <Box
+          sx={{
+            width: { xs: "100%", md: 350 },
+            maxWidth: { xs: 350, md: "none" },
+            padding: "1rem 0 0",
+            height: { xs: 400, md: "fit-content" },
+            overflowY: { xs: "scroll", md: "auto" },
+          }}>
           <Box pl={2}>
             <Typography fontWeight={"medium"} fontSize={"1rem"} variant="body1">
               Notifications
             </Typography>
             <Typography
               mt={0.25}
-              mb={1}
+              mb={1.5}
               fontSize={"0.9rem"}
               color={"secondary.dark"}>
               {" "}
@@ -105,7 +108,21 @@ const Notifications: React.FC = () => {
           </Box>
           <Divider />
           <RenderNotifications />
-        </StyledContainer>
+          <Button
+            sx={{
+              color: "rgb(24, 119, 242)",
+              textTransform: "capitalize",
+              display: "block",
+              width: "95%",
+              padding: 1,
+              margin: "0.5rem auto",
+              ":hover": {
+                backgroundColor: "rgba(24, 118, 242, 0.1)",
+              },
+            }}>
+            View All
+          </Button>
+        </Box>
       }
     />
   );
