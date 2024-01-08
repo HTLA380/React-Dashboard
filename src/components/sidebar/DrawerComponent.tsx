@@ -53,7 +53,13 @@ const StyledLink = styled(Link)({
   width: "100%",
 });
 
-const DrawerComponent = () => {
+interface DrawerComponentInterface {
+  setIsSidebarActive?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DrawerComponent: React.FC<DrawerComponentInterface> = ({
+  setIsSidebarActive,
+}) => {
   const location = useLocation();
 
   return (
@@ -86,7 +92,11 @@ const DrawerComponent = () => {
       <List>
         {SideBarData.map((data) => (
           <ListItem key={data.name} disablePadding>
-            <StyledLink to={data.path}>
+            <StyledLink
+              to={data.path}
+              onClick={() =>
+                setIsSidebarActive ? setIsSidebarActive(false) : null
+              }>
               <ListItemButton
                 sx={{
                   backgroundColor:

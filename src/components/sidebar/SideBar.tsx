@@ -25,7 +25,7 @@ const SideBar: React.FC = () => {
             width: DRAWER_WIDTH,
           },
         }}>
-        <DrawerComponent />
+        <DrawerComponent setIsSidebarActive={setIsSideBarActive} />
       </Drawer>
       <Drawer
         variant="permanent"
