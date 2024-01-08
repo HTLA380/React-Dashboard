@@ -1,26 +1,20 @@
 import React from "react";
 import { Box, Drawer } from "@mui/material";
 import DrawerComponent from "./DrawerComponent";
+import { useNavbarContext } from "../../hooks/navbarContext";
 
-interface SidebarInterface {
-  drawerWidth: number;
-}
-
-const SideBar: React.FC<SidebarInterface> = ({ drawerWidth }) => {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+const SideBar: React.FC = () => {
+  const { DRAWER_WIDTH, isSideBarActive, setIsSideBarActive } =
+    useNavbarContext();
 
   return (
     <Box
       component="nav"
-      sx={{ width: { lg: drawerWidth }, flexShrink: { lg: 0 } }}>
+      sx={{ width: { lg: DRAWER_WIDTH }, flexShrink: { lg: 0 } }}>
       <Drawer
         variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
+        open={isSideBarActive}
+        onClose={() => setIsSideBarActive((prev) => !prev)}
         ModalProps={{
           keepMounted: true,
         }}
@@ -28,7 +22,7 @@ const SideBar: React.FC<SidebarInterface> = ({ drawerWidth }) => {
           display: { xs: "block", lg: "none" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
-            width: drawerWidth,
+            width: DRAWER_WIDTH,
           },
         }}>
         <DrawerComponent />
@@ -39,7 +33,7 @@ const SideBar: React.FC<SidebarInterface> = ({ drawerWidth }) => {
           display: { xs: "none", lg: "block" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
-            width: drawerWidth,
+            width: DRAWER_WIDTH,
           },
         }}
         open>

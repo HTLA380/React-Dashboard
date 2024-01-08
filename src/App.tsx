@@ -7,11 +7,11 @@ import { theme } from "./theme";
 import SideBar from "./components/sidebar/SideBar";
 import routes from "./routes";
 import { useRoutes } from "react-router-dom";
-
-const drawerWidth = 280;
+import { useNavbarContext } from "./hooks/navbarContext";
 
 const App: React.FC = () => {
   const content = useRoutes(routes);
+  const { DRAWER_WIDTH } = useNavbarContext();
 
   return (
     <ThemeProvider theme={theme}>
@@ -23,14 +23,15 @@ const App: React.FC = () => {
           overflow: "hidden",
           backgroundColor: "primary.main",
         }}>
-        <Navbar drawerWidth={drawerWidth} />
-        <SideBar drawerWidth={drawerWidth} />
+        <Navbar />
+        <SideBar />
+
         <Box
           component="main"
           sx={{
             flexGrow: 1,
             p: 3,
-            width: { lg: `calc(100% - ${drawerWidth}px)` },
+            width: { lg: `calc(100% - ${DRAWER_WIDTH}px)` },
           }}>
           {content}
         </Box>
