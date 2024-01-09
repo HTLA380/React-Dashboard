@@ -48,7 +48,7 @@ const Activities: React.FC = () => {
               {data.icon}
               <Box>
                 <Typography
-                  variant="h4"
+                  variant="h3"
                   sx={{
                     fontSize: { xs: "1.25rem", sm: "1.4rem", md: "1.6rem" },
                   }}>

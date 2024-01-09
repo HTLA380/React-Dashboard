@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
   return (
     <Container maxWidth="xl" disableGutters>
       <Typography
-        variant="h4"
+        variant="h3"
         marginBottom={3}
         sx={{
           fontSize: { xs: "1.4rem", sm: "1.6rem" },

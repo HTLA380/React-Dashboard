@@ -22,8 +22,9 @@ const Navbar: React.FC = () => {
       sx={{
         width: { lg: `calc(100% - ${DRAWER_WIDTH}px)` },
         ml: { lg: `${DRAWER_WIDTH}px` },
-        backgroundColor: "primary.light",
+        backgroundColor: "rgba(241, 241, 241, 0.651)",
         boxShadow: "none",
+        backdropFilter: "blur(10px)",
       }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Stack flexDirection={"row"} alignItems={"center"}>

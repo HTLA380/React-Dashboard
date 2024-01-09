@@ -7,6 +7,9 @@ export const theme = createTheme({
       main: grey[100],
       contrastText: "#212b36",
     },
+    background: {
+      default: grey[100],
+    },
     secondary: {
       main: "#919eab",
     },
@@ -15,7 +18,7 @@ export const theme = createTheme({
     MuiTypography: {
       variants: [
         {
-          props: { variant: "h4" },
+          props: { variant: "h3" },
           style: {
             fontWeight: 600,
             fontSize: "1.6rem",

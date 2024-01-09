@@ -3,7 +3,6 @@ import { StyledCard } from "../../../components/Styles";
 import {
   Box,
   Checkbox,
-  Divider,
   FormControlLabel,
   IconButton,
   List,
