@@ -1,177 +1,28 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { Avatar, Checkbox, Typography } from "@mui/material";
-import { user, user2, user3, user4, user5 } from "../../assets/users/userImg";
+import { DataGrid } from "@mui/x-data-grid";
+import { Checkbox, styled } from "@mui/material";
+import { columns, rows } from "./userTableData";
 
-const columns: GridColDef[] = [
-  {
-    field: "user",
-    headerName: "Name",
-    flex: 1,
-    renderCell: (params) => {
-      return (
-        <>
-          <Avatar src={params.value.avatar} sx={{ marginRight: 1 }} />
-          <Typography fontWeight={"semi-bold"}>
-            {params.value.username}
-          </Typography>
-        </>
-      );
-    },
+const StyledDataGrid = styled(DataGrid)({
+  "&.MuiDataGrid-columnSeparator": {
+    display: "none",
   },
-  {
-    field: "company",
-    headerName: "Company",
-    flex: 1,
+  "&.MuiDataGrid-root": {
+    border: "none",
   },
-  { field: "role", headerName: "Role", flex: 1 },
-  {
-    field: "verified",
-    headerName: "Verified",
-    flex: 1,
+  "& .MuiDataGrid-columnHeader": {
+    backgroundColor: "#f4f6f8",
   },
-  {
-    field: "status",
-    headerName: "Status",
-    flex: 1,
-    renderCell: (params) => {
-      return (
-        <Box
-          sx={{
-            backgroundColor:
-              params.value == "Banned" ? "#ff563029" : "#00a76f29",
-            color: params.value == "Banned" ? "#b71d18" : "#007867",
-            padding: "0.2rem 0.4rem",
-            fontSize: 12,
-            fontWeight: "medium",
-            borderRadius: 2,
-          }}>
-          {params.value}
-        </Box>
-      );
-    },
+  "& .MuiDataGrid-columnHeaderTitle": {
+    fontWeight: "normal",
   },
-];
+});
 
-const rows = [
-  {
-    id: 1,
-    user: {
-      username: "Jon Snow",
-      avatar: user,
-    },
-    company: "Nikolaus - Rogahn",
-    role: "UI/UX Designer",
-    verified: "No",
-    status: "Banned",
-  },
-  {
-    id: 2,
-    user: {
-      username: "Cersei Lannister",
-      avatar: user2,
-    },
-    company: "Predovic - Glover",
-    role: "UI/UX Designer",
-    verified: "Yes",
-    status: "Banned",
-  },
-  {
-    id: 3,
-    user: {
-      username: "Jaime Lannister",
-      avatar: user3,
-    },
-    company: "Nikolaus - Davis",
-    role: "Project Manager",
-    verified: "No",
-    status: "Active",
-  },
-  {
-    id: 4,
-    user: {
-      username: "Arya Stark",
-      avatar: user4,
-    },
-    company: "Herman and Sons",
-    role: "UI Designer",
-    verified: "Yes",
-    status: "Banned",
-  },
-  {
-    id: 5,
-    user: {
-      username: "Daenerys Targaryen",
-      avatar: user5,
-    },
-    company: "	Weissnat Group",
-    role: "UI Designer",
-    verified: "No",
-    status: "Banned",
-  },
-
-  {
-    id: 6,
-    user: {
-      username: "Gerard Bogisich",
-      avatar: user,
-    },
-    company: "Considine - Runte",
-    role: "Hr Manager",
-    verified: "Yes",
-    status: "Active",
-  },
-  {
-    id: 7,
-    user: {
-      username: "Jennifer Botsford",
-      avatar: user2,
-    },
-    company: "Yost, Labadie and Gleichner",
-    role: "	UX Designer",
-    verified: "No",
-    status: "Active",
-  },
-  {
-    id: 8,
-    user: {
-      username: "Homer Borer DDS",
-      avatar: user3,
-    },
-    company: "Upton LLC",
-    role: "	Front End Developer",
-    verified: "No",
-    status: "Banned",
-  },
-  {
-    id: 9,
-    user: {
-      username: "Ignacio Becker DVM",
-      avatar: user4,
-    },
-    company: "Leuschke - McClure",
-    role: "Full Stack Designer",
-    verified: "No",
-    status: "Banned",
-  },
-  {
-    id: 10,
-    user: {
-      username: "Jeff Purdy",
-      avatar: user5,
-    },
-    company: "	Bins Inc",
-    role: "	Leader",
-    verified: "No",
-    status: "Active",
-  },
-];
-
-export default function ValueGetterGrid() {
+const UserTable: React.FC = () => {
   return (
     <Box sx={{ height: 440, width: "100%" }}>
-      <DataGrid
+      <StyledDataGrid
         rows={rows}
         columns={columns}
         checkboxSelection
@@ -186,20 +37,6 @@ export default function ValueGetterGrid() {
           },
         }}
         pageSizeOptions={[5, 10, 25]}
-        sx={{
-          "&.MuiDataGrid-columnSeparator": {
-            display: "none",
-          },
-          "&.MuiDataGrid-root": {
-            border: "none",
-          },
-          "& .MuiDataGrid-columnHeader": {
-            backgroundColor: "#f4f6f8",
-          },
-          "& .MuiDataGrid-columnHeaderTitle": {
-            fontWeight: "normal",
-          },
-        }}
         slots={{
           baseCheckbox: (params) => <Checkbox {...params} />,
         }}
@@ -209,4 +46,6 @@ export default function ValueGetterGrid() {
       />
     </Box>
   );
-}
+};
+
+export default UserTable;
