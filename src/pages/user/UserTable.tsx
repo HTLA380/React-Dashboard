@@ -1,20 +1,21 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { Avatar, Checkbox } from "@mui/material";
+import { Avatar, Checkbox, Typography } from "@mui/material";
 import { user, user2, user3, user4, user5 } from "../../assets/users/userImg";
 
 const columns: GridColDef[] = [
   {
     field: "user",
     headerName: "Name",
-    headerClassName: "bg-blue",
     flex: 1,
     renderCell: (params) => {
       return (
         <>
           <Avatar src={params.value.avatar} sx={{ marginRight: 1 }} />
-          {params.value.username}
+          <Typography fontWeight={"semi-bold"}>
+            {params.value.username}
+          </Typography>
         </>
       );
     },
@@ -24,7 +25,7 @@ const columns: GridColDef[] = [
     headerName: "Company",
     flex: 1,
   },
-  { field: "role", headerName: "Role", headerClassName: "bg-blue", flex: 1 },
+  { field: "role", headerName: "Role", flex: 1 },
   {
     field: "verified",
     headerName: "Verified",
@@ -34,6 +35,22 @@ const columns: GridColDef[] = [
     field: "status",
     headerName: "Status",
     flex: 1,
+    renderCell: (params) => {
+      return (
+        <Box
+          sx={{
+            backgroundColor:
+              params.value == "Banned" ? "#ff563029" : "#00a76f29",
+            color: params.value == "Banned" ? "#b71d18" : "#007867",
+            padding: "0.2rem 0.4rem",
+            fontSize: 12,
+            fontWeight: "medium",
+            borderRadius: 2,
+          }}>
+          {params.value}
+        </Box>
+      );
+    },
   },
 ];
 
@@ -94,18 +111,6 @@ const rows = [
     status: "Banned",
   },
 
-  /*
-  
- - Runte	Hr Manager	Yes	Active	
-
-Yost, Labadie and Gleichner	UX Designer	No	Active	
-
-Upton LLC	Front End Developer	No	Banned	
-
-Leuschke - McClure	Full Stack Designer	No	Banned	
-
-Bins Inc	Leader	No	Active
-   */
   {
     id: 6,
     user: {
@@ -176,6 +181,9 @@ export default function ValueGetterGrid() {
         rowHeight={65}
         initialState={{
           pagination: { paginationModel: { pageSize: 5 } },
+          sorting: {
+            sortModel: [{ field: "company", sort: "desc" }],
+          },
         }}
         pageSizeOptions={[5, 10, 25]}
         sx={{
@@ -187,6 +195,9 @@ export default function ValueGetterGrid() {
           },
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: "#f4f6f8",
+          },
+          "& .MuiDataGrid-columnHeaderTitle": {
+            fontWeight: "normal",
           },
         }}
         slots={{
