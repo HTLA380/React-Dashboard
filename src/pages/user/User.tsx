@@ -1,14 +1,5 @@
-import { Add, List, Search } from "@mui/icons-material";
-import {
-  Button,
-  Container,
-  IconButton,
-  InputAdornment,
-  Stack,
-  TextField,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Add } from "@mui/icons-material";
+import { Button, Container, Stack, Typography } from "@mui/material";
 import React from "react";
 import { StyledCard } from "../../components/Styles";
 import UserTable from "./UserTable";
@@ -48,24 +39,6 @@ const User: React.FC = () => {
       </Stack>
 
       <StyledCard>
-        <Toolbar sx={{ padding: 3, justifyContent: "space-between" }}>
-          <TextField
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <Search />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Search user..."
-            variant="outlined"
-          />
-
-          <IconButton>
-            <List sx={{ fontSize: 30 }} />
-          </IconButton>
-        </Toolbar>
-
         <UserTable />
       </StyledCard>
     </Container>
