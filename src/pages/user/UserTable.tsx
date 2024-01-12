@@ -5,11 +5,11 @@ import { Checkbox, styled } from "@mui/material";
 import { columns, rows } from "./userTableData";
 
 const StyledDataGrid = styled(DataGrid)({
-  "&.MuiDataGrid-columnSeparator": {
-    display: "none",
-  },
   "&.MuiDataGrid-root": {
     border: "none",
+  },
+  "&.MuiDataGrid-columnSeparator": {
+    display: "none",
   },
   "& .MuiDataGrid-columnHeader": {
     backgroundColor: "#f4f6f8",
@@ -21,19 +21,18 @@ const StyledDataGrid = styled(DataGrid)({
 
 const UserTable: React.FC = () => {
   return (
-    <Box sx={{ height: 440, width: "100%" }}>
+    <Box sx={{ width: "100%", height: 434 }}>
       <StyledDataGrid
-        rows={rows}
-        columns={columns}
         checkboxSelection
         disableColumnMenu
         disableRowSelectionOnClick
-        autoHeight={true}
         rowHeight={65}
+        columns={columns}
+        rows={rows}
         initialState={{
           pagination: { paginationModel: { pageSize: 5 } },
           sorting: {
-            sortModel: [{ field: "company", sort: "desc" }],
+            sortModel: [{ field: "name", sort: "asc" }],
           },
         }}
         pageSizeOptions={[5, 10, 25]}
