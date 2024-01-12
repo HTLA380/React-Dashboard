@@ -31,6 +31,7 @@ const App: React.FC = () => {
           sx={{
             flexGrow: 1,
             pt: 12,
+            pb: 6,
             width: { lg: `calc(100% - ${DRAWER_WIDTH}px)` },
           }}>
           {content}

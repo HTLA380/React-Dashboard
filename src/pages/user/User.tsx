@@ -15,7 +15,7 @@ import UserTable from "./UserTable";
 
 const User: React.FC = () => {
   return (
-    <Container maxWidth="lg" disableGutters>
+    <Container maxWidth="lg">
       <Stack
         flexDirection={"row"}
         alignItems={"center"}

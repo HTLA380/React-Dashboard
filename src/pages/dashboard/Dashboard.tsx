@@ -12,7 +12,7 @@ import Tasks from "./others/Tasks";
 
 const Dashboard: React.FC = () => {
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth="xl">
       <Typography
         variant="h3"
         marginBottom={3}
