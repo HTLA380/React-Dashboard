@@ -1,7 +1,6 @@
 import { Add } from "@mui/icons-material";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import React from "react";
-import { StyledCard } from "../../components/Styles";
 import UserTable from "./UserTable";
 
 const User: React.FC = () => {
@@ -38,9 +37,7 @@ const User: React.FC = () => {
         </Button>
       </Stack>
 
-      <StyledCard>
-        <UserTable />
-      </StyledCard>
+      <UserTable />
     </Container>
   );
 };

@@ -45,6 +45,7 @@ export const columns: GridColDef[] = [
   {
     field: "username",
     headerName: "Name",
+    minWidth: 160,
     flex: 1,
     renderCell: (params) => {
       return <Typography fontWeight={"semi-bold"}>{params.value}</Typography>;
@@ -53,18 +54,20 @@ export const columns: GridColDef[] = [
   {
     field: "company",
     headerName: "Company",
+    minWidth: 180,
     flex: 1,
   },
-  { field: "role", headerName: "Role", flex: 1 },
+  { field: "role", headerName: "Role", minWidth: 160, flex: 1 },
   {
     field: "verified",
     headerName: "Verified",
-    flex: 1,
+    minWidth: 100,
   },
   {
     field: "status",
     headerName: "Status",
     flex: 1,
+    minWidth: 100,
     renderCell: (params) => {
       return (
         <Box

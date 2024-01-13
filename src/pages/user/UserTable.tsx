@@ -1,24 +1,11 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
-import { Checkbox, IconButton, Toolbar, styled } from "@mui/material";
+import { Checkbox, IconButton, Toolbar } from "@mui/material";
 import { columns, rows } from "./userTableData";
 import { List } from "@mui/icons-material";
+import { StyledCard } from "../../components/Styles";
 
-const StyledDataGrid = styled(DataGrid)({
-  "&.MuiDataGrid-root": {
-    border: "none",
-  },
-  "& .MuiDataGrid-columnHeader": {
-    backgroundColor: "#f4f6f8",
-    overflow: "hidden",
-  },
-  "& .MuiDataGrid-columnHeaderTitle": {
-    fontWeight: "normal",
-  },
-});
-
-function QuickSearchToolbar() {
+const QuickSearchToolbar: React.FC = () => {
   return (
     <Toolbar sx={{ padding: 3, justifyContent: "space-between" }}>
       <GridToolbarQuickFilter variant="outlined" placeholder="Search User..." />
@@ -28,21 +15,21 @@ function QuickSearchToolbar() {
       </IconButton>
     </Toolbar>
   );
-}
+};
 
 const UserTable: React.FC = () => {
   return (
-    <Box sx={{ width: "100%", minHeight: 434 }}>
-      <StyledDataGrid
+    <StyledCard sx={{ width: { xs: "90vw", lg: "100%" }, marginX: "auto" }}>
+      <DataGrid
         checkboxSelection
         disableColumnMenu
         disableRowSelectionOnClick
         disableColumnSelector
         disableDensitySelector
         disableColumnFilter
-        rowHeight={65}
         columns={columns}
         rows={rows}
+        rowHeight={65}
         initialState={{
           pagination: { paginationModel: { pageSize: 5 } },
           sorting: {
@@ -62,8 +49,22 @@ const UserTable: React.FC = () => {
             csvOptions: { disableToolbarButton: true },
           },
         }}
+        sx={{
+          "&.MuiDataGrid-root": {
+            border: "none",
+            minHeight: 540,
+          },
+          "& .MuiDataGrid-columnHeader": {
+            backgroundColor: "#f4f6f8",
+            overflow: "hidden",
+          },
+          "& .MuiDataGrid-columnHeaderTitle": {
+            fontWeight: "normal",
+          },
+          "& .MuiDataGrid-main": {},
+        }}
       />
-    </Box>
+    </StyledCard>
   );
 };
 
