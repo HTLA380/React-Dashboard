@@ -13,6 +13,7 @@ import React from "react";
 import PopoverEl from "../../utils/PopoverEl";
 import EachProduct from "./EachProduct";
 import { productData } from "./productData";
+import Checkout from "./Checkout";
 
 const Products: React.FC = () => {
   return (
@@ -99,6 +100,8 @@ const Products: React.FC = () => {
           );
         })}
       </Grid>
+
+      <Checkout />
     </Container>
   );
 };

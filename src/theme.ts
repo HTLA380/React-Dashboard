@@ -13,6 +13,9 @@ export const theme = createTheme({
     secondary: {
       main: "#919eab",
     },
+    error: {
+      main: "#ff5630",
+    },
   },
   components: {
     MuiTypography: {
