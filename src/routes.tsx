@@ -1,7 +1,7 @@
 import { RouteObject } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import User from "./pages/user/User";
-import Product from "./pages/product/Product";
+import Products from "./pages/product/Products";
 import Blog from "./pages/blog/Blog";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -18,7 +18,7 @@ const routes: RouteObject[] = [
   },
   {
     path: "/product",
-    element: <Product />,
+    element: <Products />,
   },
   {
     path: "/blog",
