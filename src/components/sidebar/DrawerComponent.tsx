@@ -1,9 +1,9 @@
 import {
-  AccountBoxRounded,
-  Dashboard,
+  InsertChart,
   LockPerson,
-  ShoppingCartCheckoutRounded,
-  WebRounded,
+  Person,
+  ShoppingCart,
+  Web,
 } from "@mui/icons-material";
 import UserImg from "../../assets/user.png";
 import {
@@ -24,20 +24,20 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const SideBarData = [
-  { name: "dashboard", icon: <Dashboard />, path: "/" },
+  { name: "dashboard", icon: <InsertChart />, path: "/" },
   {
     name: "user",
-    icon: <AccountBoxRounded />,
+    icon: <Person />,
     path: "/user",
   },
   {
     name: "product",
-    icon: <ShoppingCartCheckoutRounded />,
+    icon: <ShoppingCart />,
     path: "/product",
   },
   {
     name: "blog",
-    icon: <WebRounded />,
+    icon: <Web />,
     path: "/blog",
   },
   {

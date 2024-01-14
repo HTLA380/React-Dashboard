@@ -2,7 +2,7 @@ import React from "react";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
 import { Checkbox, IconButton, Toolbar } from "@mui/material";
 import { columns, rows } from "./userTableData";
-import { List } from "@mui/icons-material";
+import { FilterList } from "@mui/icons-material";
 import { StyledCard } from "../../components/Styles";
 
 const QuickSearchToolbar: React.FC = () => {
@@ -11,7 +11,7 @@ const QuickSearchToolbar: React.FC = () => {
       <GridToolbarQuickFilter variant="outlined" placeholder="Search User..." />
 
       <IconButton>
-        <List />
+        <FilterList />
       </IconButton>
     </Toolbar>
   );
