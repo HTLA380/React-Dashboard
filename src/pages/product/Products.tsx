@@ -1,4 +1,4 @@
-import { FilterList, KeyboardArrowDown } from "@mui/icons-material";
+import { KeyboardArrowDown } from "@mui/icons-material";
 import {
   Button,
   Container,
@@ -14,6 +14,7 @@ import PopoverEl from "../../utils/PopoverEl";
 import EachProduct from "./EachProduct";
 import { productData } from "./productData";
 import Checkout from "./Checkout";
+import Filter from "./Filter/Filter";
 
 const Products: React.FC = () => {
   return (
@@ -27,18 +28,7 @@ const Products: React.FC = () => {
       </Typography>
 
       <Stack flexDirection={"row"} justifyContent={"end"}>
-        <Button
-          endIcon={<FilterList />}
-          sx={{
-            margin: 1,
-            color: "primary.contrastText",
-            textTransform: "capitalize",
-            ":hover": {
-              bgcolor: "#e4e4e4",
-            },
-          }}>
-          Filters
-        </Button>
+        <Filter />
 
         <PopoverEl
           ControlBtn={
