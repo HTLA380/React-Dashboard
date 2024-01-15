@@ -75,9 +75,9 @@ const Products: React.FC = () => {
       </Stack>
 
       <Grid container spacing={3} marginTop={2}>
-        {productData.map((data) => {
+        {productData.map((data, idx) => {
           return (
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid key={`product${idx}`} item xs={11} sm={6} md={3}>
               <EachProduct
                 productImg={data.image}
                 productName={data.title}

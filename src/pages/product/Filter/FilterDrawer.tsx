@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Divider from "@mui/material/Divider";
 import {
   Button,
   Checkbox,
@@ -97,6 +96,7 @@ const FilterDrawer: React.FC<FilterDrawerInterface> = ({ state, setState }) => {
               {["All", "Shoes", "Apparel", "Accessories"].map((item) => {
                 return (
                   <FormControlLabel
+                    key={item}
                     value={item}
                     control={
                       <Radio
@@ -126,9 +126,8 @@ const FilterDrawer: React.FC<FilterDrawerInterface> = ({ state, setState }) => {
             <Stack flexDirection={"row"} alignItems={"center"} paddingX={1}>
               {["green", "black", "white", "pink"].map((eachColor) => {
                 return (
-                  <IconButton>
+                  <IconButton key={eachColor}>
                     <Box
-                      key={eachColor}
                       sx={{
                         backgroundColor: eachColor,
                         width: 20,
@@ -143,9 +142,8 @@ const FilterDrawer: React.FC<FilterDrawerInterface> = ({ state, setState }) => {
             <Stack flexDirection={"row"} alignItems={"center"} paddingX={1}>
               {["red", "blue", "limegreen", "orange"].map((eachColor) => {
                 return (
-                  <IconButton>
+                  <IconButton key={eachColor}>
                     <Box
-                      key={eachColor}
                       sx={{
                         backgroundColor: eachColor,
                         width: 20,
@@ -166,6 +164,7 @@ const FilterDrawer: React.FC<FilterDrawerInterface> = ({ state, setState }) => {
               {["Below $25", "Between $25 - $75", "Above $75"].map((price) => {
                 return (
                   <FormControlLabel
+                    key={price}
                     value={price}
                     control={
                       <Radio
@@ -195,6 +194,7 @@ const FilterDrawer: React.FC<FilterDrawerInterface> = ({ state, setState }) => {
             {[4, 3, 2, 1].map((value) => {
               return (
                 <Stack
+                  key={value}
                   flexDirection={"row"}
                   alignItems={"center"}
                   gap={1}
