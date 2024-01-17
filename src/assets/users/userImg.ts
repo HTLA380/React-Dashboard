@@ -23,9 +23,9 @@ import user22 from "./user (22).jpg";
 import user23 from "./user (23).jpg";
 import user24 from "./user (24).jpg";
 
-export {
-  user,
+export default [
   user2,
+  user,
   user3,
   user4,
   user5,
@@ -48,4 +48,4 @@ export {
   user22,
   user23,
   user24,
-};
+];

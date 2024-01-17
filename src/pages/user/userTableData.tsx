@@ -1,32 +1,7 @@
 import Box from "@mui/material/Box";
 import { GridColDef } from "@mui/x-data-grid";
 import { Avatar, Typography } from "@mui/material";
-import {
-  user,
-  user2,
-  user3,
-  user4,
-  user5,
-  user6,
-  user7,
-  user8,
-  user9,
-  user10,
-  user11,
-  user12,
-  user13,
-  user14,
-  user15,
-  user16,
-  user17,
-  user18,
-  user19,
-  user20,
-  user21,
-  user22,
-  user23,
-  user24,
-} from "../../assets/users/userImg";
+import userImgs from "../../assets/users/userImg";
 
 export const columns: GridColDef[] = [
   {
@@ -91,7 +66,7 @@ export const rows = [
   {
     id: 1,
     username: "Cersei Lannister",
-    avatar: user2,
+    avatar: userImgs[2],
     company: "Predovic - Glover",
     role: "UI/UX Designer",
     verified: "Yes",
@@ -100,7 +75,7 @@ export const rows = [
   {
     id: 2,
     username: "Arya Stark",
-    avatar: user4,
+    avatar: userImgs[4],
     company: "Herman and Sons",
     role: "UI Designer",
     verified: "Yes",
@@ -109,7 +84,7 @@ export const rows = [
   {
     id: 3,
     username: "Daenerys Targaryen",
-    avatar: user5,
+    avatar: userImgs[5],
     company: "	Weissnat Group",
     role: "UI Designer",
     verified: "No",
@@ -119,7 +94,7 @@ export const rows = [
   {
     id: 4,
     username: "Gerard Bogisich",
-    avatar: user6,
+    avatar: userImgs[6],
     company: "Considine - Runte",
     role: "Hr Manager",
     verified: "Yes",
@@ -128,7 +103,7 @@ export const rows = [
   {
     id: 5,
     username: "Jennifer Botsford",
-    avatar: user7,
+    avatar: userImgs[7],
     company: "Yost, Labadie and Gleichner",
     role: "	UX Designer",
     verified: "No",
@@ -137,7 +112,7 @@ export const rows = [
   {
     id: 6,
     username: "Homer Borer DDS",
-    avatar: user8,
+    avatar: userImgs[8],
     company: "Upton LLC",
     role: "	Front End Developer",
     verified: "No",
@@ -146,7 +121,7 @@ export const rows = [
   {
     id: 7,
     username: "Jon Snow",
-    avatar: user,
+    avatar: userImgs[0],
     company: "Nikolaus - Rogahn",
     role: "UI/UX Designer",
     verified: "No",
@@ -155,7 +130,7 @@ export const rows = [
   {
     id: 8,
     username: "Jaime Lannister",
-    avatar: user3,
+    avatar: userImgs[3],
     company: "Nikolaus - Davis",
     role: "Project Manager",
     verified: "No",
@@ -164,7 +139,7 @@ export const rows = [
   {
     id: 9,
     username: "Ignacio Becker DVM",
-    avatar: user9,
+    avatar: userImgs[9],
     company: "Leuschke - McClure",
     role: "Full Stack Designer",
     verified: "No",
@@ -173,7 +148,7 @@ export const rows = [
   {
     id: 10,
     username: "Jeff Purdy",
-    avatar: user10,
+    avatar: userImgs[10],
     company: "	Bins Inc",
     role: "	Leader",
     verified: "No",
@@ -182,7 +157,7 @@ export const rows = [
   {
     id: 11,
     username: "Dr. Camille Satterfield",
-    avatar: user11,
+    avatar: userImgs[11],
     company: "Keeling - Turner",
     role: "UX Designer",
     verified: "No",
@@ -191,7 +166,7 @@ export const rows = [
   {
     id: 12,
     username: "Denise Hammes",
-    avatar: user12,
+    avatar: userImgs[12],
     company: "Padberg, Wolf and Bednar",
     role: "UI Designer",
     verified: "No",
@@ -200,7 +175,7 @@ export const rows = [
   {
     id: 13,
     username: "Brian Gutmann",
-    avatar: user13,
+    avatar: userImgs[13],
     company: "Abbott LLC",
     role: "Backend Developer",
     verified: "No",
@@ -209,7 +184,7 @@ export const rows = [
   {
     id: 14,
     username: "Antonia Altenwerth II",
-    avatar: user14,
+    avatar: userImgs[14],
     company: "Ullrich and Sons",
     role: "Full Stack Developer",
     verified: "Yes",
@@ -218,7 +193,7 @@ export const rows = [
   {
     id: 15,
     username: "Alexander Miller",
-    avatar: user15,
+    avatar: userImgs[15],
     company: "Medhurst, Hilll and Tromp",
     role: "		Hr Manager",
     verified: "No",
@@ -227,7 +202,7 @@ export const rows = [
   {
     id: 16,
     username: "Mr. Darin Schumm",
-    avatar: user16,
+    avatar: userImgs[16],
     company: "Pagac and Sons",
     role: "Hr Manager",
     verified: "Yes",
@@ -236,7 +211,7 @@ export const rows = [
   {
     id: 17,
     username: "Melissa Gulgowski",
-    avatar: user17,
+    avatar: userImgs[17],
     company: "Kohler - Batz",
     role: "UX Designer",
     verified: "Yes",
@@ -245,7 +220,7 @@ export const rows = [
   {
     id: 18,
     username: "Melba Ortiz",
-    avatar: user18,
+    avatar: userImgs[18],
     company: "Green, Watsica and Lang",
     role: "Hr Manager",
     verified: "No",
@@ -254,7 +229,7 @@ export const rows = [
   {
     id: 19,
     username: "Karl Jacobs I",
-    avatar: user19,
+    avatar: userImgs[19],
     company: "Larkin - O'Connell",
     role: "	Project Manager",
     verified: "No",
@@ -263,7 +238,7 @@ export const rows = [
   {
     id: 20,
     username: "Jesus Denesik PhD",
-    avatar: user20,
+    avatar: userImgs[20],
     company: "Kub LLC",
     role: "			Project Manager",
     verified: "No",
@@ -272,7 +247,7 @@ export const rows = [
   {
     id: 21,
     username: "Drew Turcotte III",
-    avatar: user21,
+    avatar: userImgs[21],
     company: "Little LLC",
     role: "Full Stack Developer",
     verified: "Yes",
@@ -281,7 +256,7 @@ export const rows = [
   {
     id: 22,
     username: "Ebony Bins",
-    avatar: user22,
+    avatar: userImgs[22],
     company: "Heathcote, Bergstrom and Raynor",
     role: "	Hr Manager",
     verified: "No",
@@ -290,7 +265,7 @@ export const rows = [
   {
     id: 23,
     username: "Harold Anderson",
-    avatar: user23,
+    avatar: userImgs[23],
     company: "Shanahan, Weber and Green",
     role: "	Backend Developer",
     verified: "No",
@@ -299,7 +274,7 @@ export const rows = [
   {
     id: 24,
     username: "Ivan Jenkins",
-    avatar: user24,
+    avatar: userImgs[24],
     company: "Goodwin LLC",
     role: "UI Designer",
     verified: "Yes",

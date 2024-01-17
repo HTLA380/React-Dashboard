@@ -2,7 +2,7 @@ import { RouteObject } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import User from "./pages/user/User";
 import Products from "./pages/product/Products";
-import Blog from "./pages/blog/Blog";
+import Blog from "./pages/blog/Blogs";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
