@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-const BlogSelector: React.FC = () => {
+const BlogFilter: React.FC = () => {
   const [state, setState] = React.useState("latest");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -13,12 +13,7 @@ const BlogSelector: React.FC = () => {
 
   return (
     <FormControl sx={{ m: 1 }} size="small">
-      <Select
-        labelId="demo-select-small-label"
-        id="demo-select-small"
-        value={state}
-        color="info"
-        onChange={handleChange}>
+      <Select id="select" value={state} color="info" onChange={handleChange}>
         <MenuItem value={"latest"}>Latest</MenuItem>
         <MenuItem value={"popular"}>Popular</MenuItem>
         <MenuItem value={"oldest"}>Oldest</MenuItem>
@@ -27,4 +22,4 @@ const BlogSelector: React.FC = () => {
   );
 };
 
-export default BlogSelector;
+export default BlogFilter;

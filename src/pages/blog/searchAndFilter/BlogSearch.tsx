@@ -1,9 +1,9 @@
 import { Autocomplete, InputAdornment, Paper, TextField } from "@mui/material";
 import React from "react";
-import { posts } from "./BlogData";
+import { posts } from "../BlogData";
 import { Search } from "@mui/icons-material";
 
-const AutoCompleteInput: React.FC = () => {
+const BlogSearch: React.FC = () => {
   return (
     <Autocomplete
       fullWidth
@@ -43,4 +43,4 @@ const AutoCompleteInput: React.FC = () => {
   );
 };
 
-export default AutoCompleteInput;
+export default BlogSearch;

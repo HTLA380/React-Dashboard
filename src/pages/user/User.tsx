@@ -1,16 +1,16 @@
 import { Add } from "@mui/icons-material";
-import { Button, Container, Stack, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import React from "react";
 import UserTable from "./UserTable";
+import {
+  StyledDeepBlueBtn,
+  StyledStackRowBetween,
+} from "../../components/Styles";
 
 const User: React.FC = () => {
   return (
     <Container maxWidth="lg">
-      <Stack
-        flexDirection={"row"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        marginBottom={5}>
+      <StyledStackRowBetween marginBottom={5}>
         <Typography
           variant="h3"
           sx={{
@@ -18,24 +18,13 @@ const User: React.FC = () => {
           }}>
           Users
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            backgroundColor: "primary.contrastText",
-            color: "primary.main",
-            textTransform: "capitalize",
-            py: 1,
-            borderRadius: 2,
-            ":hover": {
-              backgroundColor: "primary.contrastText",
-            },
-          }}>
+        <StyledDeepBlueBtn>
           <Add fontSize="small" />
           <Typography component={"span"} marginLeft={0.2}>
             New User
           </Typography>
-        </Button>
-      </Stack>
+        </StyledDeepBlueBtn>
+      </StyledStackRowBetween>
 
       <UserTable />
     </Container>

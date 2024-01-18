@@ -1,20 +1,20 @@
 import { Add } from "@mui/icons-material";
-import { Button, Container, Grid, Stack, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { posts } from "./BlogData";
-import BlogSelector from "./BlogSelector";
-import OverlayBlog from "./OverlayBlog";
-import EachBlog from "./EachBlog";
-import AutoCompleteInput from "./AutoCompleteInput";
+import BlogFilter from "./searchAndFilter/BlogFilter";
+import OverlayBlog from "./blogRenderer/OverlayBlog";
+import EachBlog from "./blogRenderer/EachBlog";
+import BlogSearch from "./searchAndFilter/BlogSearch";
+import {
+  StyledDeepBlueBtn,
+  StyledStackRowBetween,
+} from "../../components/Styles";
 
 const Blog: React.FC = () => {
   return (
     <Container maxWidth="lg">
-      <Stack
-        flexDirection={"row"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        marginBottom={4}>
+      <StyledStackRowBetween marginBottom={4}>
         <Typography
           variant="h3"
           sx={{
@@ -22,33 +22,18 @@ const Blog: React.FC = () => {
           }}>
           Blog
         </Typography>
-        <Button
-          variant="contained"
-          sx={{
-            backgroundColor: "primary.contrastText",
-            color: "primary.main",
-            textTransform: "capitalize",
-            py: 1,
-            borderRadius: 2,
-            ":hover": {
-              backgroundColor: "primary.contrastText",
-            },
-          }}>
+        <StyledDeepBlueBtn>
           <Add fontSize="small" />
           <Typography component={"span"} marginLeft={0.2}>
             New Post
           </Typography>
-        </Button>
-      </Stack>
+        </StyledDeepBlueBtn>
+      </StyledStackRowBetween>
 
-      <Stack
-        flexDirection={"row"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        marginBottom={5}>
-        <AutoCompleteInput />
-        <BlogSelector />
-      </Stack>
+      <StyledStackRowBetween marginBottom={5}>
+        <BlogSearch />
+        <BlogFilter />
+      </StyledStackRowBetween>
 
       <Grid container spacing={3}>
         {posts.slice(0, 3).map((post, idx) => {
@@ -66,6 +51,7 @@ const Blog: React.FC = () => {
                 title={post.title}
                 createAt={post.createAt}
                 avatar={post.author.avatarUrl}
+                username={post.author.name}
                 comment={post.comment}
                 view={post.view}
                 share={post.share}
@@ -79,6 +65,7 @@ const Blog: React.FC = () => {
               <EachBlog
                 coverImg={post.cover}
                 avatar={post.author.avatarUrl}
+                username={post.author.name}
                 createAt={post.createAt}
                 title={post.title}
                 comment={post.comment}
