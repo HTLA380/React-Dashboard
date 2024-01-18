@@ -36,3 +36,11 @@ export const StyledDeepBlueBtn = styled(Button)(({ theme }) => ({
   },
   padding: "0.5rem 1rem",
 }));
+
+export const StyledBtn = styled(Button)(({ theme }) => ({
+  color: "#212b36",
+  fontSize: 14,
+  textTransform: "none",
+  fontWeight: "bold",
+  ":hover": { backgroundColor: theme.palette.primary.main },
+}));

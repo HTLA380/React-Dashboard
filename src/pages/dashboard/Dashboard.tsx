@@ -1,14 +1,14 @@
 import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import Activities from "./others/Activities";
+import OverView from "./common/OverView";
 import BarChartComponent from "./chart/BarChart";
 import PieChart from "./chart/PieChart";
 import HorizontalChart from "./chart/HorizontalChart";
 import RadarChart from "./chart/RadarChart";
-import NewsUpdate from "./others/NewsUpdate";
-import OrderTimeLine from "./others/OrderTimeLine";
-import SocialMedia from "./others/SocialMedia";
-import Tasks from "./others/Tasks";
+import NewsUpdate from "./common/NewsUpdate";
+import OrderTimeLine from "./common/OrderTimeLine";
+import SocialMedia from "./common/SocialMedia";
+import Tasks from "./common/Tasks";
 
 const Dashboard: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ const Dashboard: React.FC = () => {
         Hi, Welcome back 👋
       </Typography>
 
-      <Activities />
+      <OverView />
 
       <Grid container spacing={2} marginTop={0} width={"100%"}>
         <Grid item xs={12} md={6} xl={8}>

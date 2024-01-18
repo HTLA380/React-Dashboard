@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, CardContent, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { StyledCard } from "../../../components/Styles";
 import { Error, NextWeek, Person, ShoppingCart } from "@mui/icons-material";
 import { cyan, orange, red, teal } from "@mui/material/colors";
+import { StyledOverViewContent } from "./CommonStyles";
 
 const ActivitiesData = [
   {
@@ -28,23 +29,13 @@ const ActivitiesData = [
   },
 ];
 
-const Activities: React.FC = () => {
+const OverView: React.FC = () => {
   return (
     <Grid container spacing={2} width={"100%"}>
       {ActivitiesData.map((data) => (
         <Grid xs={12} sm={6} md={3} key={data.name}>
           <StyledCard>
-            <CardContent
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "row", md: "column", xl: "row" },
-                alignItems: "top",
-                gap: 3,
-                padding: { xs: 4, xl: 5 },
-                "&:last-child": {
-                  paddingBottom: { xs: 4, xl: 5 },
-                },
-              }}>
+            <StyledOverViewContent>
               {data.icon}
               <Box>
                 <Typography
@@ -64,7 +55,7 @@ const Activities: React.FC = () => {
                   {data.name}
                 </Typography>
               </Box>
-            </CardContent>
+            </StyledOverViewContent>
           </StyledCard>
         </Grid>
       ))}
@@ -72,4 +63,4 @@ const Activities: React.FC = () => {
   );
 };
 
-export default Activities;
+export default OverView;

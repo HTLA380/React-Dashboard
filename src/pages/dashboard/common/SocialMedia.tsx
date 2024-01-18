@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledCard } from "../../../components/Styles";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import { Facebook, Google, LinkedIn, Twitter } from "@mui/icons-material";
 
 interface RenderSocialMediaInterface {
@@ -16,12 +16,10 @@ const RenderSocialMedia: React.FC<RenderSocialMediaInterface> = ({
 }) => {
   return (
     <Grid item xs={6}>
-      <Box
+      <Stack
+        alignItems={"center"}
+        justifyContent={"center"}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
           border: "1px dashed #dddddd",
           borderRadius: 3,
           padding: 3,
@@ -35,7 +33,7 @@ const RenderSocialMedia: React.FC<RenderSocialMediaInterface> = ({
           color={"secondary.dark"}>
           {name}
         </Typography>
-      </Box>
+      </Stack>
     </Grid>
   );
 };

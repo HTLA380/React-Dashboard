@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyledCard } from "../../../components/Styles";
+import { StyledCard, StyledStackRowBetween } from "../../../components/Styles";
 import {
   Box,
   Checkbox,
@@ -9,7 +9,6 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Stack,
   Typography,
 } from "@mui/material";
 import {
@@ -43,10 +42,7 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
   ];
 
   return (
-    <Stack
-      flexDirection={"row"}
-      alignItems={"center"}
-      justifyContent={"space-between"}
+    <StyledStackRowBetween
       sx={{ padding: "0.5rem 0", borderBottom: "1px dashed #cedce9" }}>
       <FormControlLabel
         control={
@@ -108,7 +104,7 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
           </List>
         }
       />
-    </Stack>
+    </StyledStackRowBetween>
   );
 };
 

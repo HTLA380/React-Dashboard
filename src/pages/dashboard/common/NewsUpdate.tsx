@@ -1,8 +1,14 @@
 import React from "react";
-import { StyledCard } from "../../../components/Styles";
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import {
+  StyledBtn,
+  StyledCard,
+  StyledStackRow,
+  StyledStackRowEnd,
+} from "../../../components/Styles";
+import { Box, Divider, Typography } from "@mui/material";
 import { newsData } from "../data";
 import { ChevronRight } from "@mui/icons-material";
+import { StyledImgContainer } from "./CommonStyles";
 
 interface RenderNewsInterface {
   title: string;
@@ -18,24 +24,8 @@ const RenderNews: React.FC<RenderNewsInterface> = ({
   date,
 }) => {
   return (
-    <Stack
-      flexDirection={"row"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      gap={2}
-      marginBottom={3}
-      maxWidth={"80vw"}>
-      <Box
-        component="img"
-        sx={{
-          height: 50,
-          width: 50,
-          objectFit: "cover",
-          borderRadius: 2,
-        }}
-        alt="avatar"
-        src={image}
-      />
+    <StyledStackRow gap={2} marginBottom={3} maxWidth={"80vw"}>
+      <StyledImgContainer alt="avatar" src={image} />
 
       <Box
         sx={{
@@ -59,7 +49,7 @@ const RenderNews: React.FC<RenderNewsInterface> = ({
         whiteSpace={"nowrap"}>
         {date}
       </Typography>
-    </Stack>
+    </StyledStackRow>
   );
 };
 
@@ -82,23 +72,9 @@ const NewsUpdate: React.FC = () => {
         ))}
       </Box>
       <Divider />
-      <Stack
-        justifyContent={"end"}
-        width={"100%"}
-        flexDirection={"row"}
-        padding={1}>
-        <Button
-          sx={{
-            color: "#212b36",
-            fontSize: 14,
-            textTransform: "none",
-            fontWeight: "bold",
-            ":hover": { backgroundColor: "primary.main" },
-          }}>
-          View All
-          <ChevronRight />
-        </Button>
-      </Stack>
+      <StyledStackRowEnd padding={1}>
+        <StyledBtn endIcon={<ChevronRight />}>View All</StyledBtn>
+      </StyledStackRowEnd>
     </StyledCard>
   );
 };
