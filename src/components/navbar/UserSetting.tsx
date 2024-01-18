@@ -17,7 +17,7 @@ const StyledList = styled(List)({
   width: 180,
 });
 
-const User: React.FC = () => {
+const UserSetting: React.FC = () => {
   return (
     <PopoverEl
       margin=".5rem 0 0 0"
@@ -41,15 +41,15 @@ const User: React.FC = () => {
             />
           </ListItem>
           <Divider />
-          <ListItemButton>
-            <ListItemText primary="Home" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemText primary="Profile" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemText primary="Settings" />
-          </ListItemButton>
+
+          {["Home", "Profile", "Settings"].map((text) => {
+            return (
+              <ListItemButton key={text}>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            );
+          })}
+
           <Divider />
           <ListItemButton>
             <ListItemText
@@ -66,4 +66,4 @@ const User: React.FC = () => {
   );
 };
 
-export default User;
+export default UserSetting;

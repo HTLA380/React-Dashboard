@@ -22,6 +22,7 @@ import {
 } from "@mui/icons-material";
 import PopoverEl from "../../utils/PopoverEl";
 import { blue } from "@mui/material/colors";
+import { StyledNotificationContainer } from "./NavbarStyles";
 
 const StyledCategory = styled(Typography)({
   textTransform: "uppercase",
@@ -85,21 +86,7 @@ const Notifications: React.FC = () => {
         </IconButton>
       }
       PopoverContent={
-        <Box
-          sx={{
-            width: { xs: "100%", md: 350 },
-            maxWidth: { xs: 350, md: "none" },
-            padding: "1rem 0 0",
-            height: { xs: 400, md: "fit-content" },
-            overflowY: { xs: "scroll", md: "auto" },
-            "&::-webkit-scrollbar": {
-              width: "0.6rem",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              backgroundColor: "rgb(178, 182, 196)",
-              borderRadius: "100vmax",
-            },
-          }}>
+        <StyledNotificationContainer>
           <Box pl={2}>
             <Typography fontWeight={"medium"} fontSize={"1rem"} variant="body1">
               Notifications
@@ -113,23 +100,17 @@ const Notifications: React.FC = () => {
               You have 2 unread messages
             </Typography>
           </Box>
+
           <Divider />
+
           <RenderNotifications />
-          <Button
-            sx={{
-              color: "rgb(24, 119, 242)",
-              textTransform: "capitalize",
-              display: "block",
-              width: "95%",
-              padding: 1,
-              margin: "0.5rem auto",
-              ":hover": {
-                backgroundColor: "rgba(24, 118, 242, 0.1)",
-              },
-            }}>
-            View All
-          </Button>
-        </Box>
+
+          <Box padding={1}>
+            <Button color="info" fullWidth>
+              View All
+            </Button>
+          </Box>
+        </StyledNotificationContainer>
       }
     />
   );
