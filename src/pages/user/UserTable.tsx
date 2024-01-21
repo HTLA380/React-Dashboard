@@ -1,9 +1,8 @@
 import React from "react";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
-import { Checkbox, IconButton, Toolbar } from "@mui/material";
-import { columns, rows } from "./userTableData";
+import { Card, Checkbox, IconButton, Toolbar } from "@mui/material";
+import { columns, users } from "./userTableData";
 import { FilterList } from "@mui/icons-material";
-import { StyledCard } from "../../components/Styles";
 
 const QuickSearchToolbar: React.FC = () => {
   return (
@@ -19,7 +18,7 @@ const QuickSearchToolbar: React.FC = () => {
 
 const UserTable: React.FC = () => {
   return (
-    <StyledCard sx={{ width: { xs: "90vw", lg: "100%" }, marginX: "auto" }}>
+    <Card sx={{ width: { xs: "90vw", lg: "100%" }, marginX: "auto" }}>
       <DataGrid
         checkboxSelection
         disableColumnMenu
@@ -28,7 +27,7 @@ const UserTable: React.FC = () => {
         disableDensitySelector
         disableColumnFilter
         columns={columns}
-        rows={rows}
+        rows={users}
         rowHeight={65}
         initialState={{
           pagination: { paginationModel: { pageSize: 5 } },
@@ -42,7 +41,6 @@ const UserTable: React.FC = () => {
           toolbar: QuickSearchToolbar,
         }}
         slotProps={{
-          baseCheckbox: { color: "info" },
           toolbar: {
             showQuickFilter: true,
             printOptions: { disableToolbarButton: true },
@@ -55,16 +53,15 @@ const UserTable: React.FC = () => {
             minHeight: 540,
           },
           "& .MuiDataGrid-columnHeader": {
-            backgroundColor: "#f4f6f8",
+            backgroundColor: "background.neutral",
             overflow: "hidden",
           },
           "& .MuiDataGrid-columnHeaderTitle": {
             fontWeight: "normal",
           },
-          "& .MuiDataGrid-main": {},
         }}
       />
-    </StyledCard>
+    </Card>
   );
 };
 

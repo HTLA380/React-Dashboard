@@ -15,6 +15,7 @@ import EachProduct from "./EachProduct";
 import { productData } from "./productData";
 import Checkout from "./Checkout";
 import Filter from "./Filter/Filter";
+import { grey } from "../../theme/palette";
 
 const Products: React.FC = () => {
   return (
@@ -26,8 +27,7 @@ const Products: React.FC = () => {
         }}>
         Products
       </Typography>
-
-      <Stack flexDirection={"row"} justifyContent={"end"}>
+      <Stack flexDirection={"row"} justifyContent={"end"} alignItems={"center"}>
         <Filter />
 
         <PopoverEl
@@ -35,17 +35,17 @@ const Products: React.FC = () => {
             <Button
               endIcon={<KeyboardArrowDown />}
               sx={{
-                color: "primary.contrastText",
-                margin: 1,
-                textTransform: "capitalize",
+                backgroundColor: "background.default",
+                color: "text.primary",
                 ":hover": {
-                  bgcolor: "#e4e4e4",
+                  color: "text.primary",
+                  backgroundColor: grey[300],
                 },
               }}>
               SortBy:
               <Typography
                 component={"span"}
-                color={"secondary.dark"}
+                color={"text.secondary"}
                 marginLeft={0.5}>
                 Newest
               </Typography>
@@ -61,8 +61,6 @@ const Products: React.FC = () => {
                       dense
                       sx={{
                         padding: "0.2rem  1rem",
-                        backgroundColor:
-                          eachItem === "Newest" ? "#1877f228" : "primary.main",
                       }}>
                       <ListItemText primary={eachItem} />
                     </ListItemButton>
@@ -75,15 +73,15 @@ const Products: React.FC = () => {
       </Stack>
 
       <Grid container spacing={3} marginTop={2}>
-        {productData.map((data, idx) => {
+        {productData.map((data) => {
           return (
-            <Grid key={`product${idx}`} item xs={11} sm={6} md={3}>
+            <Grid key={data.id} item xs={11} sm={6} md={3}>
               <EachProduct
                 productImg={data.image}
-                productName={data.title}
-                productPalette={data.palette}
-                productPrice={data.prize}
-                discountPrice={data.discount}
+                productName={data.name}
+                productColor={data.colors}
+                productPrice={data.price}
+                discountPrice={data.discountPrice}
                 status={data.status}
               />
             </Grid>

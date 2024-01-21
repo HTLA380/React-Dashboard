@@ -114,39 +114,41 @@ export const radarChartData = [
     label: "Series 1",
     data: [90, 60, 50, 60, 112, 20],
     fill: true,
-    backgroundColor: "rgba(54, 162, 235, 0.2)",
-    borderColor: "rgb(54, 162, 235)",
-    pointBackgroundColor: "rgb(54, 162, 235)",
+    backgroundColor: alpha(primary.main, 0.2),
+    borderColor: primary.main,
+    pointBackgroundColor: primary.main,
     pointBorderColor: "#fff",
     pointHoverBackgroundColor: "#fff",
-    pointHoverBorderColor: "rgb(54, 162, 235)",
+    pointHoverBorderColor: primary.main,
   },
   {
     label: "Series 2",
     data: [28, 30, 40, 100, 20, 80],
     fill: true,
-    backgroundColor: "#ffaa0024",
-    borderColor: "#ffab00",
-    pointBackgroundColor: "#ffab00",
+    backgroundColor: alpha(warning.main, 0.2),
+    borderColor: warning.main,
+    pointBackgroundColor: warning.main,
 
     pointHoverBackgroundColor: "#fff",
-    pointHoverBorderColor: "#ffab00",
+    pointHoverBorderColor: warning.main,
   },
   {
     label: "Series 3",
     data: [50, 80, 80, 10, 50, 10],
     fill: true,
-    backgroundColor: "rgba(54, 235, 226, 0.2)",
-    borderColor: "rgb(54, 235, 226)",
-    pointBackgroundColor: "rgb(54, 235, 226)",
+    backgroundColor: alpha(info.main, 0.2),
+    borderColor: info.main,
+    pointBackgroundColor: info.main,
     pointBorderColor: "#fff",
     pointHoverBackgroundColor: "#fff",
-    pointHoverBorderColor: "rgb(54, 235, 226)",
+    pointHoverBorderColor: info.main,
   },
 ];
 
+import { alpha } from "@mui/material";
 // ======== News Data ========  //
 import { news1, news2, news3, news4, news5 } from "../../assets/news/news";
+import { info, primary, warning } from "../../theme/palette";
 
 export const newsData = [
   {

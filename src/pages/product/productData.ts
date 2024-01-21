@@ -1,195 +1,63 @@
-import {
-  product1,
-  product2,
-  product3,
-  product4,
-  product5,
-  product6,
-  product7,
-  product8,
-  product9,
-  product10,
-  product11,
-  product12,
-  product13,
-  product14,
-  product15,
-  product16,
-  product17,
-  product18,
-  product19,
-  product20,
-  product21,
-  product22,
-  product23,
-  product24,
-} from "../../assets/products/productImgs";
+import { sample } from "lodash";
+import { faker } from "@faker-js/faker";
+import { productImgs } from "../../assets/products/productImgs";
 
-export const productData = [
-  {
-    title: "Nike Air Force 1 NDESTRUKT",
-    palette: ["green", "black"],
-    prize: 57,
-    image: product1,
-  },
-  {
-    title: "Nike Space Hippie 04",
-    palette: ["black", "white"],
-    prize: 41,
-    image: product2,
-  },
-  {
-    title: "Nike Air Zoom Pegasus 37 A.I.R. Chaz Bear",
-    palette: ["white", "pink"],
-    status: "sale",
-    prize: 82,
-    discount: 28,
-    image: product3,
-  },
-  {
-    title: "Nike Blazer Low 77 Vintage",
-    palette: ["pink", "red", "blue"],
-    prize: 91,
-    image: product4,
-  },
-  {
-    title: "Nike ZoomX SuperRep Surge",
-    palette: ["green", "black", "white"],
-    status: "sale",
-    prize: 74,
-    image: product5,
-  },
-  {
-    title: "Zoom Freak 2",
-    palette: ["green", "black", "white"],
-    prize: 78,
-    discount: 21,
-    image: product6,
-  },
-  {
-    title: "Nike Air Max Zephyr",
-    palette: ["green", "black", "white"],
-    status: "sale",
-    prize: 59,
-    image: product7,
-  },
-  {
-    title: "Jordan Delta",
-    palette: ["green", "black", "white"],
-    prize: 21,
-    image: product8,
-  },
-  {
-    title: "Air Jordan XXXV PF",
-    palette: ["green", "black", "white"],
-    prize: 72,
-    discount: 22,
-    image: product9,
-  },
-  {
-    title: "Nike Waffle Racer Crater",
-    palette: ["green", "black", "white"],
-    status: "new",
-    prize: 30,
-    image: product10,
-  },
-  {
-    title: "Kyrie 7 EP Sisterhood",
-    palette: ["green", "black", "white"],
-    status: "new",
-    prize: 52,
-    image: product11,
-  },
-  {
-    title: "Nike Air Zoom BB NXT",
-    palette: ["green", "black", "white"],
-    prize: 80,
-    discount: 69,
-    image: product12,
-  },
-  {
-    title: "Nike Air Force 1 07 LX",
-    palette: ["green", "black", "white"],
-    status: "sale",
-    prize: 40,
-    image: product13,
-  },
-  {
-    title: "Nike Air Force 1 Shadow SE",
-    palette: ["green", "black", "white"],
-    status: "sale",
-    prize: 74,
-    image: product14,
-  },
-  {
-    title: "Nike Air Zoom Tempo NEXT%",
-    palette: ["green", "black", "white"],
-    status: "sale",
-    prize: 26,
-    discount: 24,
-    image: product15,
-  },
-  {
-    title: "Nike DBreak-Type",
-    palette: ["green", "black", "white"],
-    status: "new",
-    prize: 59,
-    image: product16,
-  },
-  {
-    title: "Nike Air Max Up",
-    palette: ["green", "black", "white"],
-    status: "sale",
-    prize: 82,
-    image: product17,
-  },
-  {
-    title: "Nike Air Max 270 React ENG",
-    palette: ["green", "black", "white"],
-    status: "new",
-    prize: 80,
-    discount: 52,
-    image: product18,
-  },
-  {
-    title: "NikeCourt Royale",
-    palette: ["green", "black", "white"],
-    prize: 99,
-    image: product19,
-  },
-  {
-    title: "Nike Air Zoom Pegasus 37 Premium",
-    palette: ["green", "black", "white"],
-    status: "sale",
-    prize: 62,
-    image: product20,
-  },
-  {
-    title: "Nike Air Zoom SuperRep",
-    palette: ["green", "black", "white"],
-    status: "sale",
-    prize: 85,
-    discount: 52,
-    image: product21,
-  },
-  {
-    title: "NikeCourt Royale",
-    palette: ["green", "black", "white"],
-    prize: 79,
-    image: product22,
-  },
-  {
-    title: "Nike React Art3mis",
-    palette: ["red", "green"],
-    prize: 20,
-    image: product23,
-  },
-  {
-    title: "Nike React Infinity Run Flyknit A.I.R. Chaz Bear",
-    palette: ["blue", "red", "white"],
-    status: "sale",
-    prize: 59,
-    discount: 29,
-    image: product24,
-  },
+const PRODUCT_NAME = [
+  "Nike Air Force 1 NDESTRUKT",
+  "Nike Space Hippie 04",
+  "Nike Air Zoom Pegasus 37 A.I.R. Chaz Bear",
+  "Nike Blazer Low 77 Vintage",
+  "Nike ZoomX SuperRep Surge",
+  "Zoom Freak 2",
+  "Nike Air Max Zephyr",
+  "Jordan Delta",
+  "Air Jordan XXXV PF",
+  "Nike Waffle Racer Crater",
+  "Kyrie 7 EP Sisterhood",
+  "Nike Air Zoom BB NXT",
+  "Nike Air Force 1 07 LX",
+  "Nike Air Force 1 Shadow SE",
+  "Nike Air Zoom Tempo NEXT%",
+  "Nike DBreak-Type",
+  "Nike Air Max Up",
+  "Nike Air Max 270 React ENG",
+  "NikeCourt Royale",
+  "Nike Air Zoom Pegasus 37 Premium",
+  "Nike Air Zoom SuperRep",
+  "NikeCourt Royale",
+  "Nike React Art3mis",
+  "Nike React Infinity Run Flyknit A.I.R. Chaz Bear",
 ];
+const PRODUCT_COLOR = [
+  "#00AB55",
+  "#000000",
+  "#FFFFFF",
+  "#FFC0CB",
+  "#FF4842",
+  "#1890FF",
+  "#94D82D",
+  "#FFC107",
+];
+
+// ----------------------------------------------------------------------
+
+export const productData = [...Array(24)].map((_, index) => {
+  const setIndex = index + 1;
+
+  return {
+    id: faker.string.uuid(),
+    image: productImgs[index],
+    name: PRODUCT_NAME[index],
+    price: faker.number.int({ min: 4, max: 99 }),
+    discountPrice: setIndex % 3 ? null : faker.number.int({ min: 19, max: 29 }),
+    colors:
+      (setIndex === 1 && PRODUCT_COLOR.slice(0, 2)) ||
+      (setIndex === 2 && PRODUCT_COLOR.slice(1, 3)) ||
+      (setIndex === 3 && PRODUCT_COLOR.slice(2, 4)) ||
+      (setIndex === 4 && PRODUCT_COLOR.slice(3, 6)) ||
+      (setIndex === 23 && PRODUCT_COLOR.slice(4, 6)) ||
+      (setIndex === 24 && PRODUCT_COLOR.slice(5, 6)) ||
+      PRODUCT_COLOR,
+    status: sample(["sale", "new", "", ""]),
+  };
+});

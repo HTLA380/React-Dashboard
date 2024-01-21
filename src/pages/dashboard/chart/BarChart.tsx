@@ -1,6 +1,5 @@
 import React from "react";
-import { StyledCard } from "../../../components/Styles";
-import { Box, Typography } from "@mui/material";
+import { Box, Card, CardHeader } from "@mui/material";
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 
@@ -10,13 +9,12 @@ import { ChartData } from "../data";
 
 const BarChartComponent: React.FC = () => {
   return (
-    <StyledCard>
-      <Box margin={3}>
-        <Typography variant="h5">Website Visits</Typography>
-        <Typography variant="body2" color={"secondary.dark"}>
-          (+43%) than last year
-        </Typography>
-      </Box>
+    <Card>
+      <CardHeader
+        margin={3}
+        title="Website Visits"
+        subheader="(+43%) than last year"
+      />
 
       <Box padding={"2rem"} sx={{ aspectRatio: "1/0.4" }}>
         <Bar
@@ -46,7 +44,7 @@ const BarChartComponent: React.FC = () => {
           }}
         />
       </Box>
-    </StyledCard>
+    </Card>
   );
 };
 

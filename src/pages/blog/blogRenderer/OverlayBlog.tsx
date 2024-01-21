@@ -1,7 +1,7 @@
 import { Share, Sms, Visibility } from "@mui/icons-material";
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import { formatDate, formatNumber } from "./helper";
+import { formatDate, formatNumber } from "../../../utils/helper";
 import { StyledStackRow, StyledStackRowEnd } from "../../../components/Styles";
 import { StyledCoverBox, StyledDate } from "./RendererStyles";
 

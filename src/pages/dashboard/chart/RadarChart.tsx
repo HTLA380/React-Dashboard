@@ -9,8 +9,7 @@ import {
 } from "chart.js";
 import React from "react";
 import { Radar } from "react-chartjs-2";
-import { StyledCard } from "../../../components/Styles";
-import { Box, Typography } from "@mui/material";
+import { Box, Card, CardHeader } from "@mui/material";
 import { radarChartData } from "../data";
 ChartJS.register(
   RadialLinearScale,
@@ -23,10 +22,11 @@ ChartJS.register(
 
 const RadarChart: React.FC = () => {
   return (
-    <StyledCard>
-      <Box margin={3}>
-        <Typography variant="h5">Current Subjects</Typography>
-      </Box>
+    <Card>
+      <CardHeader
+        title="Current Subjects
+        "
+      />
       <Box padding={"2rem"} height={420}>
         <Radar
           data={{
@@ -62,7 +62,7 @@ const RadarChart: React.FC = () => {
           }}
         />
       </Box>
-    </StyledCard>
+    </Card>
   );
 };
 

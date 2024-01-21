@@ -1,15 +1,13 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import { StyledCard } from "../../../components/Styles";
-import { Box, Stack, Typography } from "@mui/material";
+import { Card, CardHeader, Stack } from "@mui/material";
 import { PieChartData } from "../data";
+import { error, info, primary, warning } from "../../../theme/palette";
 
 const PieChart: React.FC = () => {
   return (
-    <StyledCard>
-      <Box margin={3}>
-        <Typography variant="h5">Current Visits</Typography>
-      </Box>
+    <Card>
+      <CardHeader margin={3} title="Website Visits" />
 
       <Stack padding={"2rem"} height={400} alignItems={"center"}>
         <Pie
@@ -32,14 +30,19 @@ const PieChart: React.FC = () => {
             datasets: [
               {
                 data: PieChartData.map((data) => data.visits),
-                backgroundColor: ["#1877f2", "#ffab00", "#00b8d9", "#ff5630"],
+                backgroundColor: [
+                  primary.main,
+                  warning.main,
+                  info.main,
+                  error.main,
+                ],
                 hoverOffset: 4,
               },
             ],
           }}
         />
       </Stack>
-    </StyledCard>
+    </Card>
   );
 };
 

@@ -23,7 +23,7 @@ import product22 from "./product_22.jpg";
 import product23 from "./product_23.jpg";
 import product24 from "./product_24.jpg";
 
-export {
+export const productImgs = [
   product1,
   product2,
   product3,
@@ -48,4 +48,4 @@ export {
   product22,
   product23,
   product24,
-};
+];

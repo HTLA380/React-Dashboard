@@ -1,4 +1,4 @@
-import { AppBar, Box, Drawer, styled } from "@mui/material";
+import { AppBar, Box, Drawer, alpha, styled } from "@mui/material";
 
 export const StyledAppBar = styled(AppBar)<{ DRAWER_WIDTH: number }>(
   ({ theme, DRAWER_WIDTH }) => ({
@@ -7,8 +7,8 @@ export const StyledAppBar = styled(AppBar)<{ DRAWER_WIDTH: number }>(
       width: `calc(100% - ${DRAWER_WIDTH}px)`,
       marginLeft: `${DRAWER_WIDTH}px`,
     },
-    backgroundColor: "rgba(241, 241, 241, 0.651)",
     boxShadow: "none",
+    backgroundColor: alpha(theme.palette.background.default, 0.5),
     backdropFilter: "blur(10px)",
   })
 );

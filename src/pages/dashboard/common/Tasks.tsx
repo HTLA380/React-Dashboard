@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { StyledCard, StyledStackRowBetween } from "../../../components/Styles";
+import { StyledStackRowBetween } from "../../../components/Styles";
 import {
   Box,
+  Card,
+  CardHeader,
   Checkbox,
   FormControlLabel,
   IconButton,
@@ -20,10 +22,21 @@ import {
 } from "@mui/icons-material";
 import PopoverEl from "../../../utils/PopoverEl";
 
-interface RenderTasksInterface {
-  taskName: string;
-  finished?: boolean;
-}
+const Tasks: React.FC = () => {
+  return (
+    <Card>
+      <CardHeader title="Tasks" />
+
+      <Box sx={{ padding: "0 2rem 1rem" }}>
+        <RenderTasks taskName={"Create FireStone Logo"} finished />
+        <RenderTasks taskName={"Add SCSS and JS files if required"} />
+        <RenderTasks taskName={"Stakeholder Meeting"} />
+        <RenderTasks taskName={"Scoping & Estimations"} />
+        <RenderTasks taskName={"Sprint Showcase"} />
+      </Box>
+    </Card>
+  );
+};
 
 const RenderTasks: React.FC<RenderTasksInterface> = ({
   taskName,
@@ -36,7 +49,7 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
     { icon: <Edit sx={{ fontSize: 20 }} />, name: "Edit" },
     { icon: <Share sx={{ fontSize: 20 }} />, name: "Share" },
     {
-      icon: <Delete sx={{ fontSize: 20, color: "rgb(255, 86, 48)" }} />,
+      icon: <Delete sx={{ fontSize: 20, color: "error.main" }} />,
       name: "Delete",
     },
   ];
@@ -49,12 +62,6 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
           <Checkbox
             checked={isCheck}
             onChange={() => setIsChecked((prev) => !prev)}
-            sx={{
-              color: "#4b6075",
-              "&.Mui-checked": {
-                color: "#0066ff",
-              },
-            }}
           />
         }
         label={
@@ -63,7 +70,7 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
             fontSize={17}
             sx={{
               textDecoration: isCheck ? "line-through" : "none",
-              color: isCheck ? "secondary.dark" : "primary.contrastText",
+              color: isCheck ? "text.disabled" : "inherit",
             }}>
             {taskName}
           </Typography>
@@ -87,8 +94,7 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
                 <ListItemButton
                   key={option.name}
                   sx={{ padding: "0.25rem 1rem" }}>
-                  <ListItemIcon
-                    sx={{ minWidth: 30, color: "primary.contrastText" }}>
+                  <ListItemIcon sx={{ minWidth: 30, color: "text.primary" }}>
                     {option.icon}
                   </ListItemIcon>
                   <ListItemText
@@ -108,22 +114,9 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
   );
 };
 
-const Tasks: React.FC = () => {
-  return (
-    <StyledCard>
-      <Box margin={3}>
-        <Typography variant="h5">Tasks</Typography>
-      </Box>
-
-      <Box sx={{ padding: "0 2rem 1rem" }}>
-        <RenderTasks taskName={"Create FireStone Logo"} finished />
-        <RenderTasks taskName={"Add SCSS and JS files if required"} />
-        <RenderTasks taskName={"Stakeholder Meeting"} />
-        <RenderTasks taskName={"Scoping & Estimations"} />
-        <RenderTasks taskName={"Sprint Showcase"} />
-      </Box>
-    </StyledCard>
-  );
-};
+interface RenderTasksInterface {
+  taskName: string;
+  finished?: boolean;
+}
 
 export default Tasks;

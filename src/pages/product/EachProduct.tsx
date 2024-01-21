@@ -1,26 +1,32 @@
-import { Box, CardContent, CardMedia, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React from "react";
-import { StyledCard } from "../../components/Styles";
 
 interface EachProductInterface {
   productImg: string;
   productName: string;
   productPrice: number;
-  discountPrice?: number;
-  productPalette: string[];
+  discountPrice: number | null;
+  productColor: string[];
   status?: string;
 }
 
 const EachProduct: React.FC<EachProductInterface> = ({
   productImg,
   productName,
-  productPalette,
+  productColor,
   productPrice,
   discountPrice,
   status,
 }) => {
   return (
-    <StyledCard sx={{ position: "relative" }}>
+    <Card sx={{ position: "relative" }}>
       <CardMedia image={productImg} component={"img"} />
       <CardContent sx={{ textOverflow: "ellipsis", paddingX: 3 }}>
         <Typography
@@ -29,6 +35,7 @@ const EachProduct: React.FC<EachProductInterface> = ({
             ":hover": { textDecoration: "underline" },
             marginTop: 1,
           }}
+          variant="subtitle2"
           noWrap>
           {productName}
         </Typography>
@@ -38,8 +45,9 @@ const EachProduct: React.FC<EachProductInterface> = ({
           alignItems={"center"}
           justifyContent={"space-between"}
           marginTop={1}>
-          <Stack flexDirection={"row"}>
-            {productPalette.map((eachColor, idx) => {
+          <Stack flexDirection={"row"} alignItems={"center"}>
+            {productColor.map((eachColor, idx) => {
+              if (idx > 2) return;
               return (
                 <Box
                   key={eachColor}
@@ -54,23 +62,31 @@ const EachProduct: React.FC<EachProductInterface> = ({
                   }}></Box>
               );
             })}
+            {productColor.length > 3 && (
+              <Typography variant="body2" fontWeight={500}>
+                +{productColor.length - 3}
+              </Typography>
+            )}
           </Stack>
 
           {discountPrice ? (
-            <Stack flexDirection={"row"} gap={0.5}>
+            <Stack flexDirection={"row"} alignItems={"baseline"} gap={0.5}>
               <Typography
+                variant="body2"
+                color={"text.disabled"}
                 sx={{
                   textDecoration: "line-through",
-                  color: "primary.dark",
-                  fontSize: "inherit",
-                  fontWeight: "normal",
                 }}>
                 ${productPrice}
               </Typography>
-              <Typography>${discountPrice}</Typography>
+              <Typography variant="subtitle2" sx={{ fontSize: 16 }}>
+                ${discountPrice}
+              </Typography>
             </Stack>
           ) : (
-            <Typography sx={{ fontSize: 18 }}>${productPrice}</Typography>
+            <Typography variant="subtitle2" sx={{ fontSize: 16 }}>
+              ${productPrice}
+            </Typography>
           )}
         </Stack>
       </CardContent>
@@ -92,7 +108,7 @@ const EachProduct: React.FC<EachProductInterface> = ({
           {status}
         </Box>
       )}
-    </StyledCard>
+    </Card>
   );
 };
 
