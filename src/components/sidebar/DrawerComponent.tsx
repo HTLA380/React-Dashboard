@@ -17,11 +17,13 @@ import {
   ListItemText,
   Stack,
   Typography,
+  alpha,
   styled,
 } from "@mui/material";
-import { blue } from "@mui/material/colors";
+
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { primary } from "../../theme/palette";
 
 const SideBarData = [
   { name: "dashboard", icon: <InsertChart />, path: "/" },
@@ -68,7 +70,7 @@ const DrawerComponent: React.FC<DrawerComponentInterface> = ({
         variant="h5"
         fontWeight={"bold"}
         marginBottom={2}
-        sx={{ color: blue[700], cursor: "pointer" }}>
+        sx={{ color: "primary.main", cursor: "pointer" }}>
         ReactBoard
       </Typography>
       <Stack
@@ -76,7 +78,7 @@ const DrawerComponent: React.FC<DrawerComponentInterface> = ({
         alignItems={"center"}
         gap={2}
         sx={{
-          backgroundColor: "primary.main",
+          backgroundColor: "background.neutral",
           borderRadius: 3,
           padding: "0.5rem",
         }}>
@@ -91,7 +93,7 @@ const DrawerComponent: React.FC<DrawerComponentInterface> = ({
       </Stack>
       <List>
         {SideBarData.map((data) => (
-          <ListItem key={data.name} disablePadding>
+          <ListItem key={data.name} disablePadding sx={{ marginY: 0.5 }}>
             <StyledLink
               to={data.path}
               onClick={() =>
@@ -101,9 +103,15 @@ const DrawerComponent: React.FC<DrawerComponentInterface> = ({
                 sx={{
                   backgroundColor:
                     location.pathname === data.path
-                      ? "#1876f228"
+                      ? alpha(primary.main, 0.1)
                       : "transparent",
                   borderRadius: 2,
+                  ":hover": {
+                    backgroundColor:
+                      location.pathname === data.path
+                        ? alpha(primary.main, 0.2)
+                        : "background.neutral",
+                  },
                 }}>
                 <ListItemIcon
                   sx={{
@@ -117,7 +125,7 @@ const DrawerComponent: React.FC<DrawerComponentInterface> = ({
                   primary={
                     <Typography
                       textTransform={"capitalize"}
-                      variant="subtitle1"
+                      variant="subtitle2"
                       sx={{
                         color:
                           location.pathname === data.path
