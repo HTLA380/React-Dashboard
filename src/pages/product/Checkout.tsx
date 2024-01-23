@@ -7,7 +7,7 @@ const Checkout: React.FC = () => {
     <Box
       sx={{
         padding: "0.5rem 1.25rem",
-        backgroundColor: "#fff",
+        backgroundColor: "common.white",
         position: "fixed",
         top: 140,
         right: 0,
@@ -20,7 +20,7 @@ const Checkout: React.FC = () => {
       }}
       component={"button"}>
       <Badge badgeContent={1} color="error">
-        <ShoppingCart sx={{ color: "primary.contrastText" }} />
+        <ShoppingCart />
       </Badge>
     </Box>
   );
