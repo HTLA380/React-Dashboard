@@ -1,20 +1,8 @@
 import React from "react";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
 import { Card, Checkbox, IconButton, Toolbar } from "@mui/material";
-import { columns, users } from "./userTableData";
 import { FilterList } from "@mui/icons-material";
-
-const QuickSearchToolbar: React.FC = () => {
-  return (
-    <Toolbar sx={{ padding: 3, justifyContent: "space-between" }}>
-      <GridToolbarQuickFilter variant="outlined" placeholder="Search User..." />
-
-      <IconButton>
-        <FilterList />
-      </IconButton>
-    </Toolbar>
-  );
-};
+import { columns, users } from "../../mock/userData";
 
 const UserTable: React.FC = () => {
   return (
@@ -62,6 +50,18 @@ const UserTable: React.FC = () => {
         }}
       />
     </Card>
+  );
+};
+
+const QuickSearchToolbar: React.FC = () => {
+  return (
+    <Toolbar sx={{ padding: 3, justifyContent: "space-between" }}>
+      <GridToolbarQuickFilter variant="outlined" placeholder="Search User..." />
+
+      <IconButton>
+        <FilterList />
+      </IconButton>
+    </Toolbar>
   );
 };
 
