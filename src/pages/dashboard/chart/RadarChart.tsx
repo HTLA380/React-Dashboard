@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { Radar } from "react-chartjs-2";
 import { Box, Card, CardHeader } from "@mui/material";
-import { radarChartData } from "../data";
+import { radarChartData } from "../../../mock/dashboardData";
 ChartJS.register(
   RadialLinearScale,
   PointElement,

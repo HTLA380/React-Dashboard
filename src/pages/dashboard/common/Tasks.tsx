@@ -22,37 +22,51 @@ import {
 } from "@mui/icons-material";
 import PopoverEl from "../../../utils/PopoverEl";
 
-const Tasks: React.FC = () => {
+interface TasksInterface {
+  title: string;
+  tasks: Array<string>;
+}
+
+const Tasks: React.FC<TasksInterface> = ({ title, tasks }) => {
   return (
     <Card>
-      <CardHeader title="Tasks" />
+      <CardHeader title={title} />
 
       <Box sx={{ padding: "0 2rem 1rem" }}>
-        <RenderTasks taskName={"Create FireStone Logo"} finished />
-        <RenderTasks taskName={"Add SCSS and JS files if required"} />
-        <RenderTasks taskName={"Stakeholder Meeting"} />
-        <RenderTasks taskName={"Scoping & Estimations"} />
-        <RenderTasks taskName={"Sprint Showcase"} />
+        {tasks.map((eachTask, idx) => {
+          return (
+            <RenderTask
+              taskName={eachTask}
+              finished={idx == 1}
+              key={`Tasks-${idx + 1}`}
+            />
+          );
+        })}
       </Box>
     </Card>
   );
 };
 
-const RenderTasks: React.FC<RenderTasksInterface> = ({
+const TASK_OPTIONS = [
+  { icon: <CheckCircle sx={{ fontSize: 20 }} />, name: "Mark Complete" },
+  { icon: <Edit sx={{ fontSize: 20 }} />, name: "Edit" },
+  { icon: <Share sx={{ fontSize: 20 }} />, name: "Share" },
+  {
+    icon: <Delete sx={{ fontSize: 20, color: "error.main" }} />,
+    name: "Delete",
+  },
+];
+
+interface RenderTaskInterface {
+  taskName: string;
+  finished?: boolean;
+}
+
+const RenderTask: React.FC<RenderTaskInterface> = ({
   taskName,
   finished = false,
 }) => {
   const [isCheck, setIsChecked] = useState<boolean>(finished);
-
-  const options = [
-    { icon: <CheckCircle sx={{ fontSize: 20 }} />, name: "Mark Complete" },
-    { icon: <Edit sx={{ fontSize: 20 }} />, name: "Edit" },
-    { icon: <Share sx={{ fontSize: 20 }} />, name: "Share" },
-    {
-      icon: <Delete sx={{ fontSize: 20, color: "error.main" }} />,
-      name: "Delete",
-    },
-  ];
 
   return (
     <StyledStackRowBetween
@@ -89,7 +103,7 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
         }
         PopoverContent={
           <List disablePadding>
-            {options.map((option) => {
+            {TASK_OPTIONS.map((option) => {
               return (
                 <ListItemButton
                   key={option.name}
@@ -97,11 +111,10 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
                   <ListItemIcon sx={{ minWidth: 30, color: "text.primary" }}>
                     {option.icon}
                   </ListItemIcon>
+
                   <ListItemText
                     primary={
-                      <Typography variant="body2" fontSize={14}>
-                        {option.name}
-                      </Typography>
+                      <Typography variant="body2">{option.name}</Typography>
                     }
                   />
                 </ListItemButton>
@@ -113,10 +126,5 @@ const RenderTasks: React.FC<RenderTasksInterface> = ({
     </StyledStackRowBetween>
   );
 };
-
-interface RenderTasksInterface {
-  taskName: string;
-  finished?: boolean;
-}
 
 export default Tasks;

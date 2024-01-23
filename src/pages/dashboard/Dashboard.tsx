@@ -9,7 +9,17 @@ import NewsUpdate from "./common/NewsUpdate";
 import OrderTimeLine from "./common/OrderTimeLine";
 import TrafficBySite from "./common/TrafficBySite";
 import Tasks from "./common/Tasks";
-import { Error, NextWeek, Person, ShoppingCart } from "@mui/icons-material";
+import {
+  Error,
+  Facebook,
+  Google,
+  LinkedIn,
+  NextWeek,
+  Person,
+  ShoppingCart,
+  Twitter,
+} from "@mui/icons-material";
+import { faker } from "@faker-js/faker";
 
 const Dashboard: React.FC = () => {
   return (
@@ -67,19 +77,79 @@ const Dashboard: React.FC = () => {
         </Grid>
 
         <Grid item xs={12} md={6} xl={8}>
-          <NewsUpdate />
+          <NewsUpdate
+            title="News Update"
+            lists={[...Array(5)].map((_, index) => ({
+              id: faker.string.uuid(),
+              title: faker.person.jobTitle(),
+              description: faker.commerce.productDescription(),
+              image: `/assets/images/covers/cover_${index + 1}.jpg`,
+              date: faker.date.recent(),
+            }))}
+          />
         </Grid>
 
         <Grid item xs={12} md={6} xl={4}>
-          <OrderTimeLine />
+          <OrderTimeLine
+            title="Order Timeline"
+            lists={[...Array(5)].map((_, index) => ({
+              id: faker.string.uuid(),
+              title: [
+                "1983, orders, $4220",
+                "12 Invoices have been paid",
+                "Order #37745 from September",
+                "New order placed #XF-2356",
+                "New order placed #XF-2346",
+              ][index],
+              type: `order${index + 1}`,
+              time: faker.date.past(),
+            }))}
+          />
         </Grid>
 
         <Grid item xs={12} md={6} xl={4}>
-          <TrafficBySite />
+          <TrafficBySite
+            title="Traffic by Site"
+            items={[
+              {
+                icon: <Facebook />,
+                name: "facebook",
+                number: "323.23k",
+                iconColor: "primary.main",
+              },
+              {
+                icon: <Google />,
+                name: "google",
+                number: "341.21k",
+                iconColor: "error.main",
+              },
+              {
+                icon: <LinkedIn />,
+                name: "LinkedIn",
+                number: "411.21l",
+                iconColor: "info.dark",
+              },
+              {
+                icon: <Twitter />,
+                name: "Twitter",
+                number: "443.23k",
+                iconColor: "info.main",
+              },
+            ]}
+          />
         </Grid>
 
         <Grid item xs={12} md={6} xl={8}>
-          <Tasks />
+          <Tasks
+            title="Tasks"
+            tasks={[
+              "Create FireStone Logo",
+              "Add SCSS and JS files if required",
+              "Stakeholder Meeting",
+              "Scoping & Estimations",
+              "Sprint Showcase",
+            ]}
+          />
         </Grid>
       </Grid>
     </Container>

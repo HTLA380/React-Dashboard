@@ -1,7 +1,7 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
 import { Card, CardHeader, Stack } from "@mui/material";
-import { PieChartData } from "../data";
+import { PieChartData } from "../../../mock/dashboardData";
 import { error, info, primary, warning } from "../../../theme/palette";
 
 const PieChart: React.FC = () => {

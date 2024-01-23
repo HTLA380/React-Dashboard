@@ -5,7 +5,7 @@ import { Chart, registerables } from "chart.js";
 
 Chart.register(...registerables);
 
-import { ChartData } from "../data";
+import { ChartData } from "../../../mock/dashboardData";
 
 const BarChartComponent: React.FC = () => {
   return (

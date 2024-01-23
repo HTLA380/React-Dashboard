@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
-import { HorizontalBarChartData } from "../data";
+import { HorizontalBarChartData } from "../../../mock/dashboardData";
 import { Box, Card, CardHeader } from "@mui/material";
 import { primary } from "../../../theme/palette";
 

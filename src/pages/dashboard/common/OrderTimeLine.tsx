@@ -8,51 +8,49 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { formatDate } from "../../../utils/helper";
 
-const OrderTimeLine: React.FC = () => {
+interface OrderTimeLineInterface {
+  title: string;
+  lists: {
+    title: string;
+    type: string;
+    time: Date;
+    id: string;
+  }[];
+}
+
+const OrderTimeLine: React.FC<OrderTimeLineInterface> = ({ title, lists }) => {
   return (
     <Card>
-      <CardHeader margin={3} title="Order TimeLine" />
+      <CardHeader margin={3} title={title} />
 
       <List sx={{ padding: "0.8rem 2rem 2rem" }}>
-        <RenderOrder
-          name="1983, orders, $4220"
-          dotColor="primary.main"
-          date="16 Nov 2023 3:21 PM"
-        />
-        <RenderOrder
-          name="
-          12 Invoices have been paid"
-          dotColor="success.main"
-          date="22 Jan 2023 10:02 AM"
-        />
-        <RenderOrder
-          name="Order #37745 from September"
-          dotColor="info.main"
-          date="01 Apr 2023 6:22 PM"
-        />
-        <RenderOrder
-          name="New order placed #XF-2356"
-          dotColor="warning.main"
-          date="15 Jun 2023 6:03 PM"
-        />
-        <RenderOrder
-          name="New order placed #XF-2346"
-          dotColor="error.main"
-          date="07 Oct 2023 6:59 PM"
-          disableBorder
-        />
+        {lists.map((list, idx) => {
+          return (
+            <RenderOrder
+              key={list.id}
+              list={{ ...list, disableDivider: idx === lists.length - 1 }}
+            />
+          );
+        })}
       </List>
     </Card>
   );
 };
 
-const RenderOrder: React.FC<RenderOrderInterface> = ({
-  name,
-  date,
-  dotColor,
-  disableBorder = false,
-}) => {
+interface RenderOrderInterface {
+  list: {
+    title: string;
+    type: string;
+    time: Date;
+    disableDivider?: boolean;
+  };
+}
+
+const RenderOrder: React.FC<RenderOrderInterface> = ({ list }) => {
+  const { title, type, time, disableDivider = false } = list;
+
   return (
     <ListItem alignItems="flex-start" disablePadding>
       <Stack
@@ -65,10 +63,15 @@ const RenderOrder: React.FC<RenderOrderInterface> = ({
             width: 13,
             height: 13,
             marginTop: 0.7,
-            backgroundColor: dotColor,
+            backgroundColor:
+              (type === "order1" && "primary.main") ||
+              (type === "order2" && "success.main") ||
+              (type === "order3" && "info.main") ||
+              (type === "order4" && "warning.main") ||
+              "error.main",
             borderRadius: "100vmax",
           }}></Box>
-        {!disableBorder && (
+        {!disableDivider && (
           <Box
             sx={{
               width: 2,
@@ -80,21 +83,14 @@ const RenderOrder: React.FC<RenderOrderInterface> = ({
 
       <Box>
         <Typography variant="subtitle2" marginBottom={0.2}>
-          {name}
+          {title}
         </Typography>
         <Typography variant="body2" color={"text.disabled"} fontSize={12}>
-          {date}
+          {formatDate(time)}
         </Typography>
       </Box>
     </ListItem>
   );
 };
-
-interface RenderOrderInterface {
-  name: string;
-  date: string;
-  dotColor: string;
-  disableBorder?: boolean;
-}
 
 export default OrderTimeLine;
