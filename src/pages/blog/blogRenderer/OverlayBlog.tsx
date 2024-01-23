@@ -1,23 +1,8 @@
 import { Share, Sms, Visibility } from "@mui/icons-material";
-import { Avatar, Box, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Card, Stack, Typography } from "@mui/material";
 import React from "react";
 import { formatDate, formatNumber } from "../../../utils/helper";
 import { StyledStackRow, StyledStackRowEnd } from "../../../components/Styles";
-import { StyledCoverBox, StyledDate } from "./RendererStyles";
-
-interface IconCountRowInterface {
-  icon: React.ReactNode;
-  count: number;
-}
-
-const IconCountRow: React.FC<IconCountRowInterface> = ({ icon, count }) => (
-  <StyledStackRow gap={0.5}>
-    {icon}
-    <Typography fontSize={12} sx={{ color: "rgb(145, 158, 171)" }}>
-      {formatNumber(count)}K
-    </Typography>
-  </StyledStackRow>
-);
 
 interface OverlayBlogInterface {
   cover: string;
@@ -40,51 +25,103 @@ const OverlayBlog: React.FC<OverlayBlogInterface> = ({
   view,
   share,
 }) => {
+  const renderCover = (
+    <Box
+      component={"img"}
+      src={cover}
+      sx={{
+        width: 1,
+        height: 1,
+        objectFit: "cover",
+        objectPosition: "center",
+      }}
+    />
+  );
+
+  const renderAvatar = <Avatar src={avatar} alt={username}></Avatar>;
+
+  const renderDate = (
+    <Typography
+      sx={{
+        fontSize: 12,
+        fontWeight: 400,
+        color: "text.disabled",
+        marginBottom: 2,
+      }}>
+      {formatDate(createAt)}
+    </Typography>
+  );
+
+  const renderTitle = (
+    <Typography
+      variant="subtitle1"
+      color={"common.white"}
+      fontSize={"inherit"}
+      fontWeight={"inherit"}
+      marginTop={2}
+      sx={{
+        ":hover": {
+          textDecoration: "underline",
+        },
+      }}>
+      {title}
+    </Typography>
+  );
+
+  const renderInfo = (
+    <StyledStackRowEnd gap={1} flexWrap={"wrap"} marginTop={3}>
+      {[
+        {
+          number: comment,
+          icon: <Sms sx={{ fontSize: 16, color: "text.disabled" }} />,
+        },
+        {
+          number: view,
+          icon: <Visibility sx={{ fontSize: 16, color: "text.disabled" }} />,
+        },
+        {
+          number: share,
+          icon: <Share sx={{ fontSize: 16, color: "text.disabled" }} />,
+        },
+      ].map((item) => {
+        return (
+          <StyledStackRow gap={0.5} key={item.number}>
+            {item.icon}
+            <Typography fontSize={12} sx={{ color: "rgb(145, 158, 171)" }}>
+              {formatNumber(item.number)}K
+            </Typography>
+          </StyledStackRow>
+        );
+      })}
+    </StyledStackRowEnd>
+  );
+
   return (
-    <StyledCoverBox cover={cover}>
+    <Card sx={{ height: 1 }}>
+      {renderCover}
+
       <Stack
         sx={{
-          width: "100%",
-          height: "100%",
+          width: 1,
+          height: 1,
           backgroundColor: "#161c24b8",
           padding: "1.5rem",
+          position: "absolute",
+          top: 0,
+          left: 0,
         }}
         justifyContent={"space-between"}>
-        <Avatar src={avatar} alt={username}></Avatar>
+        {renderAvatar}
 
         <Box>
-          <StyledDate>{formatDate(createAt)}</StyledDate>
-          <Typography
-            variant="h3"
-            color={"primary"}
-            fontSize={"inherit"}
-            fontWeight={"inherit"}>
-            {title}
-          </Typography>
+          {renderDate}
 
-          <StyledStackRowEnd gap={1} marginTop={3} flexWrap={"wrap"}>
-            <IconCountRow
-              icon={<Sms sx={{ fontSize: 16, color: "rgb(145, 158, 171)" }} />}
-              count={comment}
-            />
-            <IconCountRow
-              icon={
-                <Visibility
-                  sx={{ fontSize: 16, color: "rgb(145, 158, 171)" }}
-                />
-              }
-              count={view}
-            />
-            <IconCountRow
-              icon={
-                <Share sx={{ fontSize: 16, color: "rgb(145, 158, 171)" }} />
-              }
-              count={share}
-            />
-          </StyledStackRowEnd>
+          {renderTitle}
+
+          {renderInfo}
         </Box>
       </Stack>
-    </StyledCoverBox>
+    </Card>
   );
 };
 

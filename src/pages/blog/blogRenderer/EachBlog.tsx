@@ -1,28 +1,15 @@
-import { Avatar, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { formatDate, formatNumber } from "../../../utils/helper";
 import { Share, Sms, Visibility } from "@mui/icons-material";
 import { StyledStackRow, StyledStackRowEnd } from "../../../components/Styles";
-import {
-  StyledAvatarBg,
-  StyledBlogTitle,
-  StyledCard,
-  StyledDate,
-} from "./RendererStyles";
-
-interface IconCountRowInterface {
-  icon: React.ReactNode;
-  count: number;
-}
-
-const IconCountRow: React.FC<IconCountRowInterface> = ({ icon, count }) => (
-  <StyledStackRow gap={0.5}>
-    {icon}
-    <Typography fontSize={12} sx={{ color: "rgb(145, 158, 171)" }}>
-      {formatNumber(count)}K
-    </Typography>
-  </StyledStackRow>
-);
 
 interface EachBlogInterface {
   coverImg: string;
@@ -45,33 +32,105 @@ const EachBlog: React.FC<EachBlogInterface> = ({
   view,
   share,
 }) => {
+  const renderCover = (
+    <CardMedia component="img" image={coverImg} alt={"cover"} />
+  );
+
+  const renderAvatar = (
+    <Box
+      sx={{
+        width: 80,
+        height: 36,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundImage: "url(/assets/images/cover/shape-avatar.svg)",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        position: "absolute",
+        top: -20,
+        left: 0,
+      }}>
+      <Avatar
+        sx={{ marginTop: 1, width: 30, height: 30 }}
+        src={avatar}
+        alt={username}
+      />
+    </Box>
+  );
+
+  const renderDate = (
+    <Typography
+      sx={{
+        fontSize: 12,
+        fontWeight: 400,
+        color: "text.disabled",
+        marginBottom: 2,
+      }}>
+      {formatDate(createAt)}
+    </Typography>
+  );
+
+  const renderTitle = (
+    <Typography
+      variant="subtitle2"
+      sx={{
+        fontSize: 15,
+        fontWeight: 500,
+        whiteSpace: "pre-line",
+        display: "-webkit-box",
+        WebkitBoxOrient: "vertical",
+        overflow: "hidden",
+        WebkitLineClamp: 2,
+        textOverflow: "ellipsis",
+      }}>
+      {title}
+    </Typography>
+  );
+
+  const renderInfo = (
+    <StyledStackRowEnd gap={1} flexWrap={"wrap"} marginTop={3}>
+      {[
+        {
+          number: comment,
+          icon: <Sms sx={{ fontSize: 16, color: "text.disabled" }} />,
+        },
+        {
+          number: view,
+          icon: <Visibility sx={{ fontSize: 16, color: "text.disabled" }} />,
+        },
+        {
+          number: share,
+          icon: <Share sx={{ fontSize: 16, color: "text.disabled" }} />,
+        },
+      ].map((item) => {
+        return (
+          <StyledStackRow gap={0.5} key={item.number}>
+            {item.icon}
+            <Typography fontSize={12} sx={{ color: "rgb(145, 158, 171)" }}>
+              {formatNumber(item.number)}K
+            </Typography>
+          </StyledStackRow>
+        );
+      })}
+    </StyledStackRowEnd>
+  );
+
   return (
-    <StyledCard>
-      <CardMedia component="img" image={coverImg} alt={username} />
+    <Card>
+      {renderCover}
+
       <CardContent sx={{ position: "relative", padding: "2rem 1.5rem" }}>
-        <StyledAvatarBg>
-          <Avatar sx={{ marginTop: 1, width: 30, height: 30 }} src={avatar} />
-        </StyledAvatarBg>
-        <StyledDate>{formatDate(createAt)}</StyledDate>
-        <StyledBlogTitle variant="h5">{title}</StyledBlogTitle>
-        <StyledStackRowEnd marginTop={4} gap={1} flexWrap={"wrap"}>
-          <IconCountRow
-            icon={<Sms sx={{ fontSize: 16, color: "rgb(145, 158, 171)" }} />}
-            count={comment}
-          />
-          <IconCountRow
-            icon={
-              <Visibility sx={{ fontSize: 16, color: "rgb(145, 158, 171)" }} />
-            }
-            count={view}
-          />
-          <IconCountRow
-            icon={<Share sx={{ fontSize: 16, color: "rgb(145, 158, 171)" }} />}
-            count={share}
-          />
-        </StyledStackRowEnd>
+        {renderAvatar}
+
+        {renderDate}
+
+        {renderTitle}
+
+        {renderInfo}
       </CardContent>
-    </StyledCard>
+    </Card>
   );
 };
 

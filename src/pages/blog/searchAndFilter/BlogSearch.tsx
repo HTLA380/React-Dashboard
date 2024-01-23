@@ -1,6 +1,6 @@
 import { Autocomplete, InputAdornment, Paper, TextField } from "@mui/material";
 import React from "react";
-import { posts } from "../BlogData";
+import { posts } from "../../../mock/blogData";
 import { Search } from "@mui/icons-material";
 
 const BlogSearch: React.FC = () => {
