@@ -1,6 +1,5 @@
 import { sample } from "lodash";
 import { faker } from "@faker-js/faker";
-import { productImgs } from "../../assets/products/productImgs";
 
 const PRODUCT_NAME = [
   "Nike Air Force 1 NDESTRUKT",
@@ -46,7 +45,7 @@ export const productData = [...Array(24)].map((_, index) => {
 
   return {
     id: faker.string.uuid(),
-    image: productImgs[index],
+    image: `/assets/images/products/product_${index + 1}.jpg`,
     name: PRODUCT_NAME[index],
     price: faker.number.int({ min: 4, max: 99 }),
     discountPrice: setIndex % 3 ? null : faker.number.int({ min: 19, max: 29 }),

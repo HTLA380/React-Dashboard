@@ -1,7 +1,5 @@
 import { faker } from "@faker-js/faker";
-import postImgs from "../../assets/posts/postsImg";
-import userImgs from "../../assets/users/userImg";
-// ----------------------------------------------------------------------
+
 const POST_TITLES = [
   "Whiteboard Templates By Industry Leaders",
   "Tesla Cybertruck-inspired camper trailer for Tesla fans who can’t just wait for the truck!",
@@ -31,7 +29,7 @@ const POST_TITLES = [
 
 export const posts = [...Array(23)].map((_, index) => ({
   id: faker.string.uuid(),
-  cover: postImgs[index],
+  cover: `./assets/images/covers/cover_${index + 1}.jpg`,
   title: POST_TITLES[index + 1],
   createAt: faker.date.past(),
   view: faker.number.int(99999),
@@ -40,6 +38,6 @@ export const posts = [...Array(23)].map((_, index) => ({
   favorite: faker.number.int(99999),
   author: {
     name: faker.person.fullName(),
-    avatarUrl: userImgs[index],
+    avatarUrl: `./assets/images/users/user (${index + 1}).jpg`,
   },
 }));
