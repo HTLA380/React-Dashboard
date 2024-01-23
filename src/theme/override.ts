@@ -34,7 +34,7 @@ export function overrides(theme: Theme): Components {
           boxShadow: "0 0 1rem rgba(0, 0, 0, 0.055)",
           borderRadius: Number(theme.shape.borderRadius) * 2,
           position: "relative",
-          zIndex: 0, // Fix Safari overflow: hidden with border radius
+          zIndex: 0,
         },
       },
     },
@@ -54,6 +54,7 @@ export function overrides(theme: Theme): Components {
         root: {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.grey[800],
+          borderRadius: 8,
           "&:hover": {
             color: theme.palette.common.white,
             backgroundColor: theme.palette.grey[800],
