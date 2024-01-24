@@ -64,35 +64,46 @@ const DrawerComponent: React.FC<DrawerComponentInterface> = ({
 }) => {
   const location = useLocation();
 
-  return (
-    <Box sx={{ margin: "2rem 1rem" }}>
+  const renderLogo = (
+    <StyledLink to={"/"}>
       <Typography
         variant="h5"
-        fontWeight={"bold"}
         marginBottom={2}
-        sx={{ color: "primary.main", cursor: "pointer" }}>
+        sx={{
+          color: "primary.main",
+          cursor: "pointer",
+        }}>
         ReactBoard
       </Typography>
-      <Stack
-        flexDirection={"row"}
-        alignItems={"center"}
-        gap={2}
-        sx={{
-          backgroundColor: "background.neutral",
-          borderRadius: 3,
-          padding: "0.5rem",
-        }}>
-        <IconButton>
-          <Avatar
-            alt="Htet Aung Lin"
-            src={UserImg}
-            sx={{ width: 35, height: 35 }}
-          />
-        </IconButton>
-        <Typography variant="subtitle1">Htet Aung Lin</Typography>
-      </Stack>
-      <List>
-        {SideBarData.map((data) => (
+    </StyledLink>
+  );
+
+  const renderProfile = (
+    <Stack
+      flexDirection={"row"}
+      alignItems={"center"}
+      gap={2}
+      sx={{
+        backgroundColor: "background.neutral",
+        borderRadius: 3,
+        padding: "0.5rem",
+      }}>
+      <IconButton>
+        <Avatar
+          alt="Htet Aung Lin"
+          src={UserImg}
+          sx={{ width: 35, height: 35 }}
+        />
+      </IconButton>
+      <Typography variant="subtitle1">Htet Aung Lin</Typography>
+    </Stack>
+  );
+
+  const renderLinks = (
+    <List>
+      {SideBarData.map((data) => {
+        const isActive = data.path === location.pathname;
+        return (
           <ListItem key={data.name} disablePadding sx={{ marginY: 0.5 }}>
             <StyledLink
               to={data.path}
@@ -100,37 +111,33 @@ const DrawerComponent: React.FC<DrawerComponentInterface> = ({
                 setIsSidebarActive ? setIsSidebarActive(false) : null
               }>
               <ListItemButton
+                color="primary"
                 sx={{
-                  backgroundColor:
-                    location.pathname === data.path
-                      ? alpha(primary.main, 0.1)
-                      : "transparent",
+                  backgroundColor: isActive
+                    ? alpha(primary.main, 0.1)
+                    : "transparent",
                   borderRadius: 2,
                   ":hover": {
-                    backgroundColor:
-                      location.pathname === data.path
-                        ? alpha(primary.main, 0.2)
-                        : "background.neutral",
+                    backgroundColor: isActive
+                      ? alpha(primary.main, 0.2)
+                      : "background.neutral",
                   },
                 }}>
                 <ListItemIcon
                   sx={{
                     minWidth: "2.25rem",
-                    color:
-                      location.pathname === data.path ? "#357ab8" : "#637381",
+                    color: isActive ? "#357ab8" : "#637381",
                   }}>
                   {data.icon}
                 </ListItemIcon>
+
                 <ListItemText
                   primary={
                     <Typography
                       textTransform={"capitalize"}
                       variant="subtitle2"
                       sx={{
-                        color:
-                          location.pathname === data.path
-                            ? "#357ab8"
-                            : "#637381",
+                        color: isActive ? "#357ab8" : "#637381",
                       }}>
                       {data.name}
                     </Typography>
@@ -139,8 +146,18 @@ const DrawerComponent: React.FC<DrawerComponentInterface> = ({
               </ListItemButton>
             </StyledLink>
           </ListItem>
-        ))}
-      </List>
+        );
+      })}
+    </List>
+  );
+
+  return (
+    <Box sx={{ margin: "2rem 1rem" }}>
+      {renderLogo}
+
+      {renderProfile}
+
+      {renderLinks}
     </Box>
   );
 };

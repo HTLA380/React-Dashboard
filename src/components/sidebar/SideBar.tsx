@@ -11,6 +11,7 @@ const SideBar: React.FC = () => {
     <Box
       component="nav"
       sx={{ width: { lg: DRAWER_WIDTH }, flexShrink: { lg: 0 } }}>
+      {/* ====================== Mobile Sidebar ====================== */}
       <Drawer
         variant="temporary"
         open={isSideBarActive}
@@ -27,6 +28,8 @@ const SideBar: React.FC = () => {
         }}>
         <DrawerComponent setIsSidebarActive={setIsSideBarActive} />
       </Drawer>
+
+      {/* ====================== Desktop Sidebar ====================== */}
       <Drawer
         variant="permanent"
         sx={{
