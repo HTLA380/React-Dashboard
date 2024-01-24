@@ -13,7 +13,6 @@ const Products: React.FC = () => {
       <Typography variant="h4">Products</Typography>
       <StyledStackRowEnd>
         <Filter />
-
         <SortProduct />
       </StyledStackRowEnd>
 

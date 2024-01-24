@@ -1,5 +1,5 @@
 import React from "react";
-import PopoverEl from "../../utils/PopoverEl";
+import PopoverEl from "../../components/PopoverEl";
 import {
   Button,
   List,
@@ -39,25 +39,23 @@ const SortProduct: React.FC = () => {
             Newest
           </Typography>
         </Button>
-      }
-      PopoverContent={
-        <List dense disablePadding>
-          {SORT_OPTIONS.map((eachItem) => {
-            return (
-              <ListItemButton
-                key={eachItem}
-                selected={eachItem === "Newest"}
-                dense
-                sx={{
-                  padding: "0.2rem  1rem",
-                }}>
-                <ListItemText primary={eachItem} />
-              </ListItemButton>
-            );
-          })}
-        </List>
-      }
-    />
+      }>
+      <List dense disablePadding>
+        {SORT_OPTIONS.map((eachItem) => {
+          return (
+            <ListItemButton
+              key={eachItem}
+              selected={eachItem === "Newest"}
+              dense
+              sx={{
+                padding: "0.2rem  1rem",
+              }}>
+              <ListItemText primary={eachItem} />
+            </ListItemButton>
+          );
+        })}
+      </List>
+    </PopoverEl>
   );
 };
 
