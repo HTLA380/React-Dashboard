@@ -12,29 +12,20 @@ import { Share, Sms, Visibility } from "@mui/icons-material";
 import { StyledStackRow, StyledStackRowEnd } from "../../../components/Styles";
 
 interface EachBlogInterface {
-  coverImg: string;
-  avatar: string;
-  username: string;
-  createAt: Date;
-  title: string;
-  comment: number;
-  view: number;
-  share: number;
+  post: {
+    cover: string;
+    author: { name: string; avatarUrl: string };
+    createAt: Date;
+    title: string;
+    comment: number;
+    view: number;
+    share: number;
+  };
 }
 
-const EachBlog: React.FC<EachBlogInterface> = ({
-  coverImg,
-  avatar,
-  username,
-  createAt,
-  title,
-  comment,
-  view,
-  share,
-}) => {
-  const renderCover = (
-    <CardMedia component="img" image={coverImg} alt={"cover"} />
-  );
+const EachBlog: React.FC<EachBlogInterface> = ({ post }) => {
+  const { cover, author, createAt, title, comment, view, share } = post;
+  const renderCover = <CardMedia component="img" image={cover} alt={"cover"} />;
 
   const renderAvatar = (
     <Box
@@ -54,8 +45,8 @@ const EachBlog: React.FC<EachBlogInterface> = ({
       }}>
       <Avatar
         sx={{ marginTop: 1, width: 30, height: 30 }}
-        src={avatar}
-        alt={username}
+        src={author.avatarUrl}
+        alt={author.name}
       />
     </Box>
   );

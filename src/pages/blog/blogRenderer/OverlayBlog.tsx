@@ -5,32 +5,41 @@ import { formatDate, formatNumber } from "../../../utils/helper";
 import { StyledStackRow, StyledStackRowEnd } from "../../../components/Styles";
 
 interface OverlayBlogInterface {
-  cover: string;
-  avatar: string;
-  username: string;
-  createAt: Date;
-  title: string;
-  comment: number;
-  view: number;
-  share: number;
+  post: {
+    cover: string;
+    author: { name: string; avatarUrl: string };
+    createAt: Date;
+    title: string;
+    comment: number;
+    view: number;
+    share: number;
+  };
+  isLatestPost: boolean;
 }
 
 const OverlayBlog: React.FC<OverlayBlogInterface> = ({
-  cover,
-  avatar,
-  username,
-  createAt,
-  title,
-  comment,
-  view,
-  share,
+  post,
+  isLatestPost,
 }) => {
+  const { cover, author, createAt, title, comment, view, share } = post;
+
+  const latestPostFontStyle = {
+    fontSize: { xs: 16, sm: 20 },
+    fontWeight: 700,
+  };
+
+  const otherPostFontStyle = {
+    fontSize: 15,
+    fontWeight: 500,
+  };
+
   const renderCover = (
     <Box
       component={"img"}
       src={cover}
       sx={{
         width: 1,
+        minHeight: 400,
         height: 1,
         objectFit: "cover",
         objectPosition: "center",
@@ -38,7 +47,9 @@ const OverlayBlog: React.FC<OverlayBlogInterface> = ({
     />
   );
 
-  const renderAvatar = <Avatar src={avatar} alt={username}></Avatar>;
+  const renderAvatar = (
+    <Avatar src={author.avatarUrl} alt={author.name}></Avatar>
+  );
 
   const renderDate = (
     <Typography
@@ -56,10 +67,15 @@ const OverlayBlog: React.FC<OverlayBlogInterface> = ({
     <Typography
       variant="subtitle1"
       color={"common.white"}
-      fontSize={"inherit"}
-      fontWeight={"inherit"}
       marginTop={2}
       sx={{
+        ...(isLatestPost ? latestPostFontStyle : otherPostFontStyle),
+        whiteSpace: "pre-line",
+        display: "-webkit-box",
+        WebkitBoxOrient: "vertical",
+        overflow: "hidden",
+        WebkitLineClamp: 2,
+        textOverflow: "ellipsis",
         ":hover": {
           textDecoration: "underline",
         },

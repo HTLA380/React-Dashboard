@@ -32,19 +32,8 @@ const Blog: React.FC = () => {
               item
               xs={12}
               sm={idx === 0 ? 12 : 6}
-              md={idx === 0 ? 6 : 3}
-              fontSize={idx === 0 ? 20 : 15}
-              fontWeight={idx === 0 ? "bold" : "500"}>
-              <OverlayBlog
-                cover={post.cover}
-                title={post.title}
-                createAt={post.createAt}
-                avatar={post.author.avatarUrl}
-                username={post.author.name}
-                comment={post.comment}
-                view={post.view}
-                share={post.share}
-              />
+              md={idx === 0 ? 6 : 3}>
+              <OverlayBlog post={post} isLatestPost={idx === 0} />
             </Grid>
           );
         })}
@@ -52,16 +41,7 @@ const Blog: React.FC = () => {
         {posts.slice(3).map((post) => {
           return (
             <Grid item xs={12} sm={6} md={3} key={post.id}>
-              <EachBlog
-                coverImg={post.cover}
-                avatar={post.author.avatarUrl}
-                username={post.author.name}
-                createAt={post.createAt}
-                title={post.title}
-                comment={post.comment}
-                view={post.view}
-                share={post.share}
-              />
+              <EachBlog post={post} />
             </Grid>
           );
         })}
