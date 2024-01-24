@@ -11,6 +11,7 @@ const App: React.FC = () => {
   const content = useRoutes(routes);
   const { DRAWER_WIDTH } = useNavbarContext();
 
+  const isLoginPage = location.pathname === "/login";
   return (
     <ThemeProvider>
       <Box
@@ -19,14 +20,14 @@ const App: React.FC = () => {
           minHeight: "100vh",
           overflow: "hidden",
         }}>
-        <Navbar />
-        <SideBar />
+        {!isLoginPage && <Navbar />}
+        {!isLoginPage && <SideBar />}
 
         <Box
           component="main"
           sx={{
             flexGrow: 1,
-            py: 12,
+            py: !isLoginPage ? 12 : 0,
             width: { lg: `calc(100% - ${DRAWER_WIDTH}px)` },
           }}>
           {content}

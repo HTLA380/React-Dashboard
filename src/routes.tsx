@@ -4,7 +4,6 @@ import User from "./pages/user/User";
 import Products from "./pages/product/Products";
 import Blog from "./pages/blog/Blogs";
 import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
 
 const routes: RouteObject[] = [
   {
@@ -27,10 +26,6 @@ const routes: RouteObject[] = [
   {
     path: "/login",
     element: <Login />,
-  },
-  {
-    path: "/*",
-    element: <NotFound />,
   },
 ];
 
