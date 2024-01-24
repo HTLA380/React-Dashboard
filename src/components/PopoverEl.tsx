@@ -3,7 +3,6 @@ import React from "react";
 
 interface PopoverElInterface {
   ControlBtn: React.ReactNode;
-  PopoverContent: React.ReactNode;
   margin?: string;
   anchorOrigin?: {
     vertical: "top" | "center" | "bottom";
@@ -13,17 +12,18 @@ interface PopoverElInterface {
     vertical: "top" | "center" | "bottom";
     horizontal: "left" | "center" | "right";
   };
+  children: React.ReactNode;
 }
 
 const PopoverEl: React.FC<PopoverElInterface> = ({
   ControlBtn: Btn,
-  PopoverContent,
-  margin,
+  margin = 0,
   anchorOrigin = { vertical: "bottom", horizontal: "right" },
   transformOrigin = {
     vertical: "top",
     horizontal: "right",
   },
+  children,
 }) => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
@@ -38,7 +38,7 @@ const PopoverEl: React.FC<PopoverElInterface> = ({
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+  const id = open ? "popover" : undefined;
 
   return (
     <div>
@@ -51,7 +51,7 @@ const PopoverEl: React.FC<PopoverElInterface> = ({
         anchorOrigin={anchorOrigin}
         transformOrigin={transformOrigin}
         sx={{ margin: margin }}>
-        {PopoverContent}
+        {children}
       </Popover>
     </div>
   );
