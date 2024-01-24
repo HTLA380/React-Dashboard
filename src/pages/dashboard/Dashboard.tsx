@@ -23,12 +23,12 @@ import { faker } from "@faker-js/faker";
 
 const Dashboard: React.FC = () => {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ width: "100%" }}>
       <Typography variant="h4" marginBottom={3}>
         Hi, Welcome back 👋
       </Typography>
 
-      <Grid container spacing={3} marginTop={0} width={"100%"}>
+      <Grid container spacing={3} marginTop={0}>
         <Grid item xs={12} sm={6} md={3}>
           <OverView
             icon={<NextWeek sx={{ fontSize: 45, color: "success.main" }} />}

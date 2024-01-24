@@ -9,7 +9,7 @@ import SortProduct from "./SortProduct";
 
 const Products: React.FC = () => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{ width: "100%" }}>
       <Typography variant="h4">Products</Typography>
       <StyledStackRowEnd>
         <Filter />

@@ -12,7 +12,7 @@ const BlogFilter: React.FC = () => {
   };
 
   return (
-    <FormControl sx={{ m: 1 }} size="small">
+    <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
       <Select id="select" value={state} color="info" onChange={handleChange}>
         <MenuItem value={"latest"}>Latest</MenuItem>
         <MenuItem value={"popular"}>Popular</MenuItem>
