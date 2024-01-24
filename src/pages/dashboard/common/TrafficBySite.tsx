@@ -20,6 +20,7 @@ const TrafficBySite: React.FC<TrafficBySiteInterface> = ({ title, items }) => {
         {items.map((eachItem) => {
           return (
             <RenderSocialMedia
+              key={eachItem.name}
               icon={eachItem.icon}
               name={eachItem.name}
               iconColor={eachItem.iconColor}

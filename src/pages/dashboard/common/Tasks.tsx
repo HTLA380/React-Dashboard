@@ -20,7 +20,7 @@ import {
   MoreVert,
   Share,
 } from "@mui/icons-material";
-import PopoverEl from "../../../utils/PopoverEl";
+import PopoverEl from "../../../components/PopoverEl";
 
 interface TasksInterface {
   title: string;
@@ -100,29 +100,28 @@ const RenderTask: React.FC<RenderTaskInterface> = ({
           <IconButton>
             <MoreVert />
           </IconButton>
-        }
-        PopoverContent={
-          <List disablePadding>
-            {TASK_OPTIONS.map((option) => {
-              return (
-                <ListItemButton
-                  key={option.name}
-                  sx={{ padding: "0.25rem 1rem" }}>
-                  <ListItemIcon sx={{ minWidth: 30, color: "text.primary" }}>
-                    {option.icon}
-                  </ListItemIcon>
+        }>
+        {" "}
+        <List disablePadding>
+          {TASK_OPTIONS.map((option) => {
+            return (
+              <ListItemButton
+                key={option.name}
+                sx={{ padding: "0.25rem 1rem" }}>
+                <ListItemIcon sx={{ minWidth: 30, color: "text.primary" }}>
+                  {option.icon}
+                </ListItemIcon>
 
-                  <ListItemText
-                    primary={
-                      <Typography variant="body2">{option.name}</Typography>
-                    }
-                  />
-                </ListItemButton>
-              );
-            })}
-          </List>
-        }
-      />
+                <ListItemText
+                  primary={
+                    <Typography variant="body2">{option.name}</Typography>
+                  }
+                />
+              </ListItemButton>
+            );
+          })}
+        </List>
+      </PopoverEl>
     </StyledStackRowBetween>
   );
 };
