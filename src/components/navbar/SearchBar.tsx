@@ -1,43 +1,80 @@
-import * as React from "react";
-import { Close, Search } from "@mui/icons-material";
-import { Box, Button, Container, IconButton, TextField } from "@mui/material";
-import { grey } from "@mui/material/colors";
-import { StyledStackRow } from "../Styles";
-import { StyledSearchBar } from "./NavbarStyles";
+import { useState } from "react";
 
-const SearchBar = () => {
-  const [open, setOpen] = React.useState(false);
+import Slide from "@mui/material/Slide";
+import Input from "@mui/material/Input";
+import Button from "@mui/material/Button";
+import { alpha, styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { Search } from "@mui/icons-material";
+
+// ----------------------------------------------------------------------
+
+const HEADER_MOBILE = 64;
+const HEADER_DESKTOP = 92;
+
+const StyledSearchBar = styled("div")(({ theme }) => ({
+  top: 0,
+  left: 0,
+  zIndex: 99,
+  width: "100%",
+  display: "flex",
+  position: "absolute",
+  alignItems: "center",
+  height: HEADER_MOBILE,
+  backgroundColor: alpha(theme.palette.common.white, 0.8),
+  backdropFilter: "blur(5px)",
+  padding: theme.spacing(0, 3),
+  boxShadow: "0 0 20px rgba(0,0,0,0.15)",
+  [theme.breakpoints.up("md")]: {
+    height: HEADER_DESKTOP,
+    padding: theme.spacing(0, 5),
+  },
+}));
+
+// ----------------------------------------------------------------------
+
+export default function SearchBar() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <Box>
-      <IconButton onClick={() => setOpen(true)}>
-        <Search />
-      </IconButton>
+    <ClickAwayListener onClickAway={handleClose}>
+      <div>
+        {!open && (
+          <IconButton onClick={handleOpen}>
+            <Search />
+          </IconButton>
+        )}
 
-      <StyledSearchBar elevation={3} sx={{ top: open ? 0 : -200 }}>
-        <Container maxWidth="xl">
-          <StyledStackRow>
-            <Search sx={{ color: grey[600] }} />
-            <TextField
-              placeholder="Search..."
-              variant="standard"
-              sx={{ margin: "0 3rem 0 .5rem" }}
-              color="secondary"
+        <Slide direction="down" in={open} mountOnEnter unmountOnExit>
+          <StyledSearchBar>
+            <Input
+              autoFocus
               fullWidth
+              disableUnderline
+              placeholder="Search…"
+              startAdornment={
+                <InputAdornment position="start">
+                  <Search />
+                </InputAdornment>
+              }
+              sx={{ mr: 1, fontWeight: "fontWeightBold" }}
             />
-
-            <Button variant="contained" color="info" sx={{ marginRight: 2 }}>
+            <Button variant="contained" onClick={handleClose}>
               Search
             </Button>
-
-            <IconButton aria-label="close" onClick={() => setOpen(false)}>
-              <Close />
-            </IconButton>
-          </StyledStackRow>
-        </Container>
-      </StyledSearchBar>
-    </Box>
+          </StyledSearchBar>
+        </Slide>
+      </div>
+    </ClickAwayListener>
   );
-};
-
-export default SearchBar;
+}

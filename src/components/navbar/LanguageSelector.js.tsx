@@ -1,9 +1,6 @@
 import React from "react";
-import PopoverEl from "../../utils/PopoverEl";
+import PopoverEl from "../PopoverEl";
 
-import flagEn from "../../assets/flags/en.svg";
-import flagDe from "../../assets/flags/de.svg";
-import flagFr from "../../assets/flags/fr.svg";
 import {
   IconButton,
   List,
@@ -15,15 +12,15 @@ import {
 const languages = [
   {
     name: "English",
-    Image: flagEn,
+    Image: "/assets/images/flags/en.svg",
   },
   {
     name: "German",
-    Image: flagDe,
+    Image: "/assets/images/flags/de.svg",
   },
   {
     name: "French",
-    Image: flagFr,
+    Image: "/assets/images/flags/fr.svg",
   },
 ];
 
@@ -32,22 +29,20 @@ const LanguageSelector: React.FC = () => {
     <PopoverEl
       ControlBtn={
         <IconButton size="medium">
-          <img src={flagEn} alt="English" />
+          <img src={"/assets/images/flags/en.svg"} alt="English" />
         </IconButton>
-      }
-      PopoverContent={
-        <List dense sx={{ width: 160 }} disablePadding>
-          {languages.map((lang) => (
-            <ListItemButton key={lang.name}>
-              <ListItemIcon sx={{ marginRight: 0 }}>
-                <img src={lang.Image} alt={lang.name} />
-              </ListItemIcon>
-              <ListItemText primary={lang.name} />
-            </ListItemButton>
-          ))}
-        </List>
-      }
-    />
+      }>
+      <List dense sx={{ width: 160 }} disablePadding>
+        {languages.map((lang) => (
+          <ListItemButton key={lang.name}>
+            <ListItemIcon sx={{ marginRight: 0 }}>
+              <img src={lang.Image} alt={lang.name} />
+            </ListItemIcon>
+            <ListItemText primary={lang.name} />
+          </ListItemButton>
+        ))}
+      </List>
+    </PopoverEl>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import PopoverEl from "../../utils/PopoverEl";
+import PopoverEl from "../PopoverEl";
 import {
   Avatar,
   Divider,
@@ -9,13 +9,8 @@ import {
   ListItemButton,
   ListItemText,
   Typography,
-  styled,
 } from "@mui/material";
 import UserImg from "../../assets/user.png";
-
-const StyledList = styled(List)({
-  width: 180,
-});
 
 const UserSetting: React.FC = () => {
   return (
@@ -29,40 +24,38 @@ const UserSetting: React.FC = () => {
             sx={{ width: 35, height: 35 }}
           />
         </IconButton>
-      }
-      PopoverContent={
-        <StyledList dense>
-          <ListItem>
-            <ListItemText
-              primary={
-                <Typography variant="subtitle1">Htet Aung Lin</Typography>
-              }
-              secondary={"htetaunglin.coder@gmail.com"}
-            />
-          </ListItem>
-          <Divider />
+      }>
+      <List sx={{ width: 180 }} dense>
+        <ListItem>
+          <ListItemText
+            primary={<Typography variant="subtitle1">Htet Aung Lin</Typography>}
+            secondary={"htetaunglin.coder"}
+          />
+        </ListItem>
 
-          {["Home", "Profile", "Settings"].map((text) => {
-            return (
-              <ListItemButton key={text}>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            );
-          })}
+        <Divider />
 
-          <Divider />
-          <ListItemButton>
-            <ListItemText
-              primary={
-                <Typography variant="h6" color="#ff2600">
-                  Logout
-                </Typography>
-              }
-            />
-          </ListItemButton>
-        </StyledList>
-      }
-    />
+        {["Home", "Profile", "Settings"].map((text) => {
+          return (
+            <ListItemButton key={text}>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          );
+        })}
+
+        <Divider />
+
+        <ListItemButton>
+          <ListItemText
+            primary={
+              <Typography variant="subtitle2" color="error">
+                Logout
+              </Typography>
+            }
+          />
+        </ListItemButton>
+      </List>
+    </PopoverEl>
   );
 };
 
