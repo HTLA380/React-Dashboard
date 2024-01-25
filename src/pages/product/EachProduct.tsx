@@ -104,7 +104,7 @@ const EachProduct: React.FC<EachProductInterface> = ({
 
   return (
     <Card sx={{ position: "relative" }}>
-      <CardMedia image={productImg} component={"img"} />
+      <CardMedia image={productImg} component={"img"} loading="lazy" />
 
       <CardContent sx={{ textOverflow: "ellipsis", paddingX: 3 }}>
         {renderName}

@@ -1,9 +1,11 @@
+import { lazy } from "react";
 import { RouteObject } from "react-router-dom";
-import Dashboard from "./pages/dashboard/Dashboard";
-import User from "./pages/user/User";
-import Products from "./pages/product/Products";
-import Blog from "./pages/blog/Blogs";
-import Login from "./pages/Login";
+
+const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
+const User = lazy(() => import("./pages/user/User"));
+const Products = lazy(() => import("./pages/product/Products"));
+const Blog = lazy(() => import("./pages/blog/Blogs"));
+const Login = lazy(() => import("./pages/Login"));
 
 const routes: RouteObject[] = [
   {

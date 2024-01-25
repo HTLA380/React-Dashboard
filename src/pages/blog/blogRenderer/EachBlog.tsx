@@ -25,7 +25,10 @@ interface EachBlogInterface {
 
 const EachBlog: React.FC<EachBlogInterface> = ({ post }) => {
   const { cover, author, createAt, title, comment, view, share } = post;
-  const renderCover = <CardMedia component="img" image={cover} alt={"cover"} />;
+
+  const renderCover = (
+    <CardMedia component="img" image={cover} alt={"cover"} loading="lazy" />
+  );
 
   const renderAvatar = (
     <Box

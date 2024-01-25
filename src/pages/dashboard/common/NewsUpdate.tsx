@@ -72,6 +72,7 @@ const RenderNews: React.FC<RenderNewsInterface> = ({ list }) => {
         }}
         alt="avatar"
         src={image}
+        loading="lazy"
       />
 
       <Box

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Box from "@mui/material/Box";
 import Navbar from "./components/navbar/Navbar";
 import SideBar from "./components/sidebar/SideBar";
@@ -30,7 +30,7 @@ const App: React.FC = () => {
             py: !isLoginPage ? 12 : 0,
             width: { lg: `calc(100% - ${DRAWER_WIDTH}px)` },
           }}>
-          {content}
+          <Suspense>{content}</Suspense>
         </Box>
       </Box>
     </ThemeProvider>
