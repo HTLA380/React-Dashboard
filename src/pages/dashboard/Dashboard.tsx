@@ -23,7 +23,7 @@ import { faker } from "@faker-js/faker";
 
 const Dashboard: React.FC = () => {
   return (
-    <Container maxWidth="xl" sx={{ width: "100%" }}>
+    <Container maxWidth="xl" sx={{ width: { xs: "95%", md: "100%" } }}>
       <Typography variant="h4" marginBottom={3}>
         Hi, Welcome back 👋
       </Typography>
