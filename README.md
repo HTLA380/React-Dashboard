@@ -34,4 +34,4 @@ npm run dev
 
 ## Live URL
 
-- [htl-react-board](htl-react-board.netlify.app)
+- [htl-react-board](https://htl-react-board.netlify.app/)
