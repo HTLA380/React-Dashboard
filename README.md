@@ -15,8 +15,8 @@ ReactBoard is a project developed for the purpose of practicing Material-UI.
 1. Clone the repository.
 
    ```bash
-   git clone https://github.com/your-username/your-project.git
-   cd your-project
+   git clone https://github.com/HTLA380/React-Dashboard.git
+   cd React-Dashboard
    npm install
    ```
 
